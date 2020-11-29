@@ -1,0 +1,240 @@
+\hypertarget{code_8c}{}\doxysection{Référence du fichier code.\+c}
+\label{code_8c}\index{code.c@{code.c}}
+
+
+Mise en oeuvre d\textquotesingle{}un codeur de Hadamard. Programmation en C.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Graphe des dépendances par inclusion de code.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{code_8c_a9ac7505d5c25ceddb569a699993b758c}{alloue\+\_\+init\+\_\+matrice}} (int lignes, int colonnes)
+\begin{DoxyCompactList}\small\item\em Alloue et initialise une matrice à 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{code_8c_aefad84180b0052d1ed229d1d017e5217}{free\+\_\+matrice}} (int $\ast$$\ast$matrice, int lignes)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la matrice. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{code_8c_a65e14af897a9a1fe25cb96f816126e6f}{afficher\+Tableau}} (int $\ast$tab, int taille)
+\begin{DoxyCompactList}\small\item\em Affiche le tableau passé en paramètre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{code_8c_a37967ca4e7b68c07deb72aa1828f68b6}{emetteur}} (int $\ast$$\ast$matrice\+Hadamard, int dimension, int $\ast$emission, int taille, int ligne, int $\ast$$\ast$total)
+\begin{DoxyCompactList}\small\item\em Code chaque séquence. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{code_8c_a7e4f728ba541ea28906066ec65f4d236}{somme}} (int $\ast$$\ast$total, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{code_8c_a7fa65215f70b4bd1714863c7e5168b92}{afficher\+Matrice}} (int $\ast$$\ast$matrice, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Affiche la matrice passée en paramètre. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{code_8c_a880ffda84f3be0a7d687259e925cf4fe}{nb\+Utilisateurs\+Valide}} (int nb)
+\begin{DoxyCompactList}\small\item\em int \mbox{\hyperlink{code_8c_a880ffda84f3be0a7d687259e925cf4fe}{nb\+Utilisateurs\+Valide(int nb)}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{code_8c_a551d165d1b3e79a760dcc1780c2a4ea4}{saisie\+Nb\+Utilisateurs}} (int $\ast$nb\+Utilisateurs)
+\begin{DoxyCompactList}\small\item\em void \mbox{\hyperlink{code_8c_a551d165d1b3e79a760dcc1780c2a4ea4}{saisie\+Nb\+Utilisateurs(int $\ast$ nb\+Utilisateurs)}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{code_8c_acdaa16ec06d0ffbf097dab5fb4f8f63d}{cree\+Matrice\+Hadamard}} (int $\ast$$\ast$matrice\+Hadamard, int dimension)
+\begin{DoxyCompactList}\small\item\em Crée une matrice d\textquotesingle{}Hadamard. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{code_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{code_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Mise en oeuvre d\textquotesingle{}un codeur de Hadamard. Programmation en C. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{code_8c_a7fa65215f70b4bd1714863c7e5168b92}\label{code_8c_a7fa65215f70b4bd1714863c7e5168b92}} 
+\index{code.c@{code.c}!afficherMatrice@{afficherMatrice}}
+\index{afficherMatrice@{afficherMatrice}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{afficherMatrice()}{afficherMatrice()}}
+{\footnotesize\ttfamily void afficher\+Matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})}
+
+
+
+Affiche la matrice passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice Matrice \\
+\hline
+{\em int} & ligne Nombre de lignes \\
+\hline
+{\em int} & colonne Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_a65e14af897a9a1fe25cb96f816126e6f}\label{code_8c_a65e14af897a9a1fe25cb96f816126e6f}} 
+\index{code.c@{code.c}!afficherTableau@{afficherTableau}}
+\index{afficherTableau@{afficherTableau}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{afficherTableau()}{afficherTableau()}}
+{\footnotesize\ttfamily void afficher\+Tableau (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{taille }\end{DoxyParamCaption})}
+
+
+
+Affiche le tableau passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$ tab \\
+\hline
+{\em int} & taille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_a9ac7505d5c25ceddb569a699993b758c}\label{code_8c_a9ac7505d5c25ceddb569a699993b758c}} 
+\index{code.c@{code.c}!alloue\_init\_matrice@{alloue\_init\_matrice}}
+\index{alloue\_init\_matrice@{alloue\_init\_matrice}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{alloue\_init\_matrice()}{alloue\_init\_matrice()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ alloue\+\_\+init\+\_\+matrice (\begin{DoxyParamCaption}\item[{int}]{lignes,  }\item[{int}]{colonnes }\end{DoxyParamCaption})}
+
+
+
+Alloue et initialise une matrice à 0. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & lignes Nombre de lignes \\
+\hline
+{\em int} & colonnes Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Matrice allouée dynamiquement et initialisée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_acdaa16ec06d0ffbf097dab5fb4f8f63d}\label{code_8c_acdaa16ec06d0ffbf097dab5fb4f8f63d}} 
+\index{code.c@{code.c}!creeMatriceHadamard@{creeMatriceHadamard}}
+\index{creeMatriceHadamard@{creeMatriceHadamard}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{creeMatriceHadamard()}{creeMatriceHadamard()}}
+{\footnotesize\ttfamily int cree\+Matrice\+Hadamard (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice\+Hadamard,  }\item[{int}]{dimension }\end{DoxyParamCaption})}
+
+
+
+Crée une matrice d\textquotesingle{}Hadamard. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice\+Hadamard Matrice \\
+\hline
+{\em int} & dimension Dimension matrice d\textquotesingle{}Hadamard \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_a37967ca4e7b68c07deb72aa1828f68b6}\label{code_8c_a37967ca4e7b68c07deb72aa1828f68b6}} 
+\index{code.c@{code.c}!emetteur@{emetteur}}
+\index{emetteur@{emetteur}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{emetteur()}{emetteur()}}
+{\footnotesize\ttfamily void emetteur (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice\+Hadamard,  }\item[{int}]{dimension,  }\item[{int $\ast$}]{emission,  }\item[{int}]{taille,  }\item[{int}]{ligne,  }\item[{int $\ast$$\ast$}]{total }\end{DoxyParamCaption})}
+
+
+
+Code chaque séquence. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice\+Hadamard Matrice d\textquotesingle{}Hadamard \\
+\hline
+{\em int} & dimension Dimension matrice d\textquotesingle{}Hadamard \\
+\hline
+{\em int} & $\ast$ emission Tableau qui correspond à la séquence émise \\
+\hline
+{\em int} & taille Taille de la séquence émise \\
+\hline
+{\em int} & ligne Ligne utilisée dans la matrice d\textquotesingle{}Hadamard pour coder la séquence \\
+\hline
+{\em int} & $\ast$$\ast$ total Matrice qui stocke le résultat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_aefad84180b0052d1ed229d1d017e5217}\label{code_8c_aefad84180b0052d1ed229d1d017e5217}} 
+\index{code.c@{code.c}!free\_matrice@{free\_matrice}}
+\index{free\_matrice@{free\_matrice}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{free\_matrice()}{free\_matrice()}}
+{\footnotesize\ttfamily void free\+\_\+matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{lignes }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour la matrice. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice Matrice \\
+\hline
+{\em int} & lignes Nombre de lignes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_a880ffda84f3be0a7d687259e925cf4fe}\label{code_8c_a880ffda84f3be0a7d687259e925cf4fe}} 
+\index{code.c@{code.c}!nbUtilisateursValide@{nbUtilisateursValide}}
+\index{nbUtilisateursValide@{nbUtilisateursValide}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{nbUtilisateursValide()}{nbUtilisateursValide()}}
+{\footnotesize\ttfamily int nb\+Utilisateurs\+Valide (\begin{DoxyParamCaption}\item[{int}]{nb }\end{DoxyParamCaption})}
+
+
+
+int \mbox{\hyperlink{code_8c_a880ffda84f3be0a7d687259e925cf4fe}{nb\+Utilisateurs\+Valide(int nb)}} 
+
+Retourne 1 si le nombre d\textquotesingle{}utilisateurs passé en paramètre est valide. 
+\begin{DoxyParams}{Paramètres}
+{\em int} & nb Nombre d\textquotesingle{}utilisateurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si vrai. 0 si faux. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_a551d165d1b3e79a760dcc1780c2a4ea4}\label{code_8c_a551d165d1b3e79a760dcc1780c2a4ea4}} 
+\index{code.c@{code.c}!saisieNbUtilisateurs@{saisieNbUtilisateurs}}
+\index{saisieNbUtilisateurs@{saisieNbUtilisateurs}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{saisieNbUtilisateurs()}{saisieNbUtilisateurs()}}
+{\footnotesize\ttfamily void saisie\+Nb\+Utilisateurs (\begin{DoxyParamCaption}\item[{int $\ast$}]{nb\+Utilisateurs }\end{DoxyParamCaption})}
+
+
+
+void \mbox{\hyperlink{code_8c_a551d165d1b3e79a760dcc1780c2a4ea4}{saisie\+Nb\+Utilisateurs(int $\ast$ nb\+Utilisateurs)}} 
+
+Saisie du nombre d\textquotesingle{}utilisateurs 
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$ nb\+Utilisateurs Nombre d\textquotesingle{}utilisateurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{code_8c_a7e4f728ba541ea28906066ec65f4d236}\label{code_8c_a7e4f728ba541ea28906066ec65f4d236}} 
+\index{code.c@{code.c}!somme@{somme}}
+\index{somme@{somme}!code.c@{code.c}}
+\doxysubsubsection{\texorpdfstring{somme()}{somme()}}
+{\footnotesize\ttfamily int $\ast$ somme (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{total,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})}
+
+
+
+Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ total \\
+\hline
+{\em int} & ligne \\
+\hline
+{\em int} & colonne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Tableau qui correspond à la séquence du signal quand les utilisateurs émettent en même temps 
+\end{DoxyReturn}
