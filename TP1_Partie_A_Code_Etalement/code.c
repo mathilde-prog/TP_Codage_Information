@@ -120,7 +120,6 @@ int * somme (int ** total, int ligne, int colonne){
   }
 
   return tab;
-
 }
 
 /**
@@ -223,34 +222,83 @@ int creeMatriceHadamard(int ** matriceHadamard, int dimension){
   }
 }
 
+int * canalIdeal(int * sequence){
+  return sequence;
+}
+
+int ** desetalementMessage (int ** matriceHadamard, int * sequence, int nbUtilisateurs, int dimMat, int longueurMessage){
+  int ** message = alloue_init_matrice(nbUtilisateurs,longueurMessage);
+  int i, k, j, c, somme;
+
+  for(j = 0, i = 0; i < nbUtilisateurs; j = 0, i++){
+
+    for(somme = 0, c = 0, k = 0; c < (dimMat*longueurMessage); somme = 0, k = 0){
+
+      do {
+        somme = somme + (sequence[c]*matriceHadamard[i][k++]);
+        c++;
+      } while((c == 0) || (c%8 != 0));
+
+      if(somme > 0){
+        message[i][j++] = 1;
+      }
+      else {
+        message[i][j++] = 0;
+      }
+    }
+  }
+
+  return message;
+}
+
+void afficherMessageRecu (int ** message, int longueurMessage, int nbUtilisateurs){
+  int l, c;
+
+  printf("\n");
+  for (l = 0; l < nbUtilisateurs; l++){
+    printf("Message envoyé par l'utilisateur %d : ", l+1);
+    for(c = 0; c < longueurMessage; c++){
+      printf("%d ",message[l][c]);
+    }
+    printf("\n");
+  }
+}
+
 int main(){
-    int nbUtilisateurs;
+    int nbUtilisateurs, i, num_sequence = 0;
+
     saisieNbUtilisateurs(&nbUtilisateurs);
 
     int dimMat = (nbUtilisateurs > 8) ? 16 : 8;
     int ** matriceHadamard = alloue_init_matrice(dimMat,dimMat);
+    int ** resultat = alloue_init_matrice(dimMat,dimMat*3);
+    int * sequence = malloc(sizeof(int)* (dimMat*3));
     int emission[3];
-    int i, num_sequence = 0;
 
     printf("\nMatrice Hadamard : \n");
     creeMatriceHadamard(matriceHadamard,dimMat);
     afficherMatrice(matriceHadamard,dimMat,dimMat);
 
-    int ** resultat = alloue_init_matrice(dimMat,dimMat*3);
-
+    printf("\n");
     for(i = 0; i < nbUtilisateurs; i++){
-      printf("Saisir séquence émise par l'utilisateur %d <Usage : entier1 entier2 entier3> : ",i);
+      printf("Saisir séquence émise par l'utilisateur %d (usage = X X X) : ",i);
       scanf("%d %d %d",&emission[0],&emission[1],&emission[2]);
       emetteur(matriceHadamard,dimMat,emission,3,num_sequence++,resultat);
     }
 
     printf("\n");
-
     afficherMatriceResultat(resultat,dimMat,dimMat*3);
+    printf("\n");
 
-    printf("\n\nOpération d'étalement (somme des séquences) : ");
-    afficherTableau(somme(resultat,dimMat,dimMat*3),dimMat*3);
+    sequence = somme(resultat,dimMat,dimMat*3);
+    printf("Séquence après étalement : ");
+    afficherTableau(sequence,dimMat*3);
+    canalIdeal(sequence);
+
+    int ** res = desetalementMessage(matriceHadamard,sequence,nbUtilisateurs,dimMat,3);
+    afficherMessageRecu(res,3,nbUtilisateurs);
 
     free_matrice(matriceHadamard,dimMat);
     free_matrice(resultat,dimMat);
+    free(sequence);
 }
