@@ -239,7 +239,7 @@ int main(){
     int ** resultat = alloue_init_matrice(dimMat,dimMat*3);
 
     for(i = 0; i < nbUtilisateurs; i++){
-      printf("Saisir séquence émise par l'utilisateur %d : ",i);
+      printf("Saisir séquence émise par l'utilisateur %d <Usage : entier1 entier2 entier3> : ",i);
       scanf("%d %d %d",&emission[0],&emission[1],&emission[2]);
       emetteur(matriceHadamard,dimMat,emission,3,num_sequence++,resultat);
     }
@@ -248,7 +248,7 @@ int main(){
 
     afficherMatriceResultat(resultat,dimMat,dimMat*3);
 
-    printf("\n\n");
+    printf("\n\nOpération d'étalement (somme des séquences) : ");
     afficherTableau(somme(resultat,dimMat,dimMat*3),dimMat*3);
 
     free_matrice(matriceHadamard,dimMat);
