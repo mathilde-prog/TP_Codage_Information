@@ -22,7 +22,6 @@ for the JavaScript code in this file
 */
 var menudata={children:[
 {text:"Page principale",url:"index.html"},
-{text:"Pages associées",url:"pages.html"},
 {text:"Fichiers",url:"files.html",children:[
 {text:"Liste des fichiers",url:"files.html"},
 {text:"Membres de fichier",url:"globals.html",children:[

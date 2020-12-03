@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['saisienbutilisateurs_8',['saisieNbUtilisateurs',['../code_8c.html#a551d165d1b3e79a760dcc1780c2a4ea4',1,'code.c']]],
-  ['somme_9',['somme',['../code_8c.html#a7e4f728ba541ea28906066ec65f4d236',1,'code.c']]]
+  ['matrice_5ftab_2ec_13',['matrice_tab.c',['../matrice__tab_8c.html',1,'']]],
+  ['matrice_5ftab_2eh_14',['matrice_tab.h',['../matrice__tab_8h.html',1,'']]]
 ];

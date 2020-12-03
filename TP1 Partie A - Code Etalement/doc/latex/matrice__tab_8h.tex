@@ -1,0 +1,126 @@
+\hypertarget{matrice__tab_8h}{}\doxysection{Référence du fichier matrice\+\_\+tab.\+h}
+\label{matrice__tab_8h}\index{matrice\_tab.h@{matrice\_tab.h}}
+
+
+Tous les prototypes de fonctions relatives aux matrices et tableaux.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Graphe des dépendances par inclusion de matrice\+\_\+tab.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{matrice__tab_8h_a55a32c68f3588f1eb2c810ed9db1ba51}{alloue\+\_\+matrice}} (int lignes, int colonnes)
+\begin{DoxyCompactList}\small\item\em Alloue une matrice dont les dimensions sont passées en paramètres. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrice__tab_8h_aefad84180b0052d1ed229d1d017e5217}{free\+\_\+matrice}} (int $\ast$$\ast$matrice, int lignes)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la matrice. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrice__tab_8h_a65e14af897a9a1fe25cb96f816126e6f}{afficher\+Tableau}} (int $\ast$tab, int taille)
+\begin{DoxyCompactList}\small\item\em Affiche le tableau passé en paramètre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrice__tab_8h_a7fa65215f70b4bd1714863c7e5168b92}{afficher\+Matrice}} (int $\ast$$\ast$matrice, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Affiche la matrice passée en paramètre. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{matrice__tab_8h_ae8fea419eadf7c4a80954937bcca4c6f}\label{matrice__tab_8h_ae8fea419eadf7c4a80954937bcca4c6f}} 
+void {\bfseries afficher\+Matrice\+Resultat} (int $\ast$$\ast$matrice, int ligne, int colonne)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Tous les prototypes de fonctions relatives aux matrices et tableaux. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{matrice__tab_8h_a7fa65215f70b4bd1714863c7e5168b92}\label{matrice__tab_8h_a7fa65215f70b4bd1714863c7e5168b92}} 
+\index{matrice\_tab.h@{matrice\_tab.h}!afficherMatrice@{afficherMatrice}}
+\index{afficherMatrice@{afficherMatrice}!matrice\_tab.h@{matrice\_tab.h}}
+\doxysubsubsection{\texorpdfstring{afficherMatrice()}{afficherMatrice()}}
+{\footnotesize\ttfamily void afficher\+Matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})}
+
+
+
+Affiche la matrice passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice Matrice \\
+\hline
+{\em int} & ligne Nombre de lignes \\
+\hline
+{\em int} & colonne Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrice__tab_8h_a65e14af897a9a1fe25cb96f816126e6f}\label{matrice__tab_8h_a65e14af897a9a1fe25cb96f816126e6f}} 
+\index{matrice\_tab.h@{matrice\_tab.h}!afficherTableau@{afficherTableau}}
+\index{afficherTableau@{afficherTableau}!matrice\_tab.h@{matrice\_tab.h}}
+\doxysubsubsection{\texorpdfstring{afficherTableau()}{afficherTableau()}}
+{\footnotesize\ttfamily void afficher\+Tableau (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{taille }\end{DoxyParamCaption})}
+
+
+
+Affiche le tableau passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$ tab \\
+\hline
+{\em int} & taille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrice__tab_8h_a55a32c68f3588f1eb2c810ed9db1ba51}\label{matrice__tab_8h_a55a32c68f3588f1eb2c810ed9db1ba51}} 
+\index{matrice\_tab.h@{matrice\_tab.h}!alloue\_matrice@{alloue\_matrice}}
+\index{alloue\_matrice@{alloue\_matrice}!matrice\_tab.h@{matrice\_tab.h}}
+\doxysubsubsection{\texorpdfstring{alloue\_matrice()}{alloue\_matrice()}}
+{\footnotesize\ttfamily int$\ast$$\ast$ alloue\+\_\+matrice (\begin{DoxyParamCaption}\item[{int}]{lignes,  }\item[{int}]{colonnes }\end{DoxyParamCaption})}
+
+
+
+Alloue une matrice dont les dimensions sont passées en paramètres. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & lignes Nombre de lignes \\
+\hline
+{\em int} & colonnes Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Matrice allouée dynamiquement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrice__tab_8h_aefad84180b0052d1ed229d1d017e5217}\label{matrice__tab_8h_aefad84180b0052d1ed229d1d017e5217}} 
+\index{matrice\_tab.h@{matrice\_tab.h}!free\_matrice@{free\_matrice}}
+\index{free\_matrice@{free\_matrice}!matrice\_tab.h@{matrice\_tab.h}}
+\doxysubsubsection{\texorpdfstring{free\_matrice()}{free\_matrice()}}
+{\footnotesize\ttfamily void free\+\_\+matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{lignes }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour la matrice. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice Matrice \\
+\hline
+{\em int} & lignes Nombre de lignes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}

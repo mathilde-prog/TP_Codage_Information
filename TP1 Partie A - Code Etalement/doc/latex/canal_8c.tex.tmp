@@ -1,0 +1,50 @@
+\hypertarget{canal_8c}{}\doxysection{Référence du fichier canal.\+c}
+\label{canal_8c}\index{canal.c@{canal.c}}
+
+
+Fonction relative au canal.  
+
+
+{\ttfamily \#include \char`\"{}canal.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de canal.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{canal_8c_a17f5d439212533d5e7ed92919234b172}{canal\+Ideal}} (int $\ast$sequence)
+\begin{DoxyCompactList}\small\item\em Représente un canal idéal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonction relative au canal. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{canal_8c_a17f5d439212533d5e7ed92919234b172}\label{canal_8c_a17f5d439212533d5e7ed92919234b172}} 
+\index{canal.c@{canal.c}!canalIdeal@{canalIdeal}}
+\index{canalIdeal@{canalIdeal}!canal.c@{canal.c}}
+\doxysubsubsection{\texorpdfstring{canalIdeal()}{canalIdeal()}}
+{\footnotesize\ttfamily int $\ast$ canal\+Ideal (\begin{DoxyParamCaption}\item[{int $\ast$}]{sequence }\end{DoxyParamCaption})}
+
+
+
+Représente un canal idéal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$ sequence Séquence qui traverse le canal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La séquence envoyée dans le canal 
+\end{DoxyReturn}

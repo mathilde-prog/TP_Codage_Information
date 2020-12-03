@@ -1,0 +1,149 @@
+\hypertarget{emetteur_8h}{}\doxysection{Référence du fichier emetteur.\+h}
+\label{emetteur_8h}\index{emetteur.h@{emetteur.h}}
+
+
+Tous les prototypes de fonctions relatives à l\textquotesingle{}émetteur.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Graphe des dépendances par inclusion de emetteur.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{emetteur_8h_a880ffda84f3be0a7d687259e925cf4fe}{nb\+Utilisateurs\+Valide}} (int nb)
+\begin{DoxyCompactList}\small\item\em Retourne 1 si le nombre d\textquotesingle{}utilisateurs passé en paramètre est valide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{emetteur_8h_a4989fb4a57ae952b3915b45b6d972647}{choix\+Nb\+Utilisateurs}} (int $\ast$nb\+Utilisateurs)
+\begin{DoxyCompactList}\small\item\em Choix du nombre d\textquotesingle{}utilisateurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{emetteur_8h_a65d5a2be88a772ec76fcf1b9b06324ec}{cree\+Matrice\+Hadamard}} (int $\ast$$\ast$matrice\+Hadamard, int dimension)
+\begin{DoxyCompactList}\small\item\em Crée une matrice d\textquotesingle{}Hadamard dont la dimension est passée en paramètre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{emetteur_8h_a6dcaeb8647653f3579e1d0a7a55fc749}{sequences\+Utilisateurs}} (int $\ast$$\ast$matrice\+Hadamard, int dimension, int $\ast$emission, int taille, int ligne, int $\ast$$\ast$total)
+\begin{DoxyCompactList}\small\item\em Stocke la séquence émise par l\textquotesingle{}utilisateur dans la matrice total. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{emetteur_8h_ae2c3483f215b27ea810617a184c393b2}{sequence\+Etalee}} (int $\ast$$\ast$total, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Tous les prototypes de fonctions relatives à l\textquotesingle{}émetteur. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{emetteur_8h_a4989fb4a57ae952b3915b45b6d972647}\label{emetteur_8h_a4989fb4a57ae952b3915b45b6d972647}} 
+\index{emetteur.h@{emetteur.h}!choixNbUtilisateurs@{choixNbUtilisateurs}}
+\index{choixNbUtilisateurs@{choixNbUtilisateurs}!emetteur.h@{emetteur.h}}
+\doxysubsubsection{\texorpdfstring{choixNbUtilisateurs()}{choixNbUtilisateurs()}}
+{\footnotesize\ttfamily void choix\+Nb\+Utilisateurs (\begin{DoxyParamCaption}\item[{int $\ast$}]{nb\+Utilisateurs }\end{DoxyParamCaption})}
+
+
+
+Choix du nombre d\textquotesingle{}utilisateurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$ nb\+Utilisateurs Nombre d\textquotesingle{}utilisateurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{emetteur_8h_a65d5a2be88a772ec76fcf1b9b06324ec}\label{emetteur_8h_a65d5a2be88a772ec76fcf1b9b06324ec}} 
+\index{emetteur.h@{emetteur.h}!creeMatriceHadamard@{creeMatriceHadamard}}
+\index{creeMatriceHadamard@{creeMatriceHadamard}!emetteur.h@{emetteur.h}}
+\doxysubsubsection{\texorpdfstring{creeMatriceHadamard()}{creeMatriceHadamard()}}
+{\footnotesize\ttfamily void cree\+Matrice\+Hadamard (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{dim\+MatH }\end{DoxyParamCaption})}
+
+
+
+Crée une matrice d\textquotesingle{}Hadamard dont la dimension est passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice Matrice d\textquotesingle{}Hadamard \\
+\hline
+{\em int} & dim\+MatH Dimension matrice d\textquotesingle{}Hadamard \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{emetteur_8h_a880ffda84f3be0a7d687259e925cf4fe}\label{emetteur_8h_a880ffda84f3be0a7d687259e925cf4fe}} 
+\index{emetteur.h@{emetteur.h}!nbUtilisateursValide@{nbUtilisateursValide}}
+\index{nbUtilisateursValide@{nbUtilisateursValide}!emetteur.h@{emetteur.h}}
+\doxysubsubsection{\texorpdfstring{nbUtilisateursValide()}{nbUtilisateursValide()}}
+{\footnotesize\ttfamily int nb\+Utilisateurs\+Valide (\begin{DoxyParamCaption}\item[{int}]{nb }\end{DoxyParamCaption})}
+
+
+
+Retourne 1 si le nombre d\textquotesingle{}utilisateurs passé en paramètre est valide. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & nb Nombre d\textquotesingle{}utilisateurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si le nombre d\textquotesingle{}utilisateurs est valide. 0 sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{emetteur_8h_ae2c3483f215b27ea810617a184c393b2}\label{emetteur_8h_ae2c3483f215b27ea810617a184c393b2}} 
+\index{emetteur.h@{emetteur.h}!sequenceEtalee@{sequenceEtalee}}
+\index{sequenceEtalee@{sequenceEtalee}!emetteur.h@{emetteur.h}}
+\doxysubsubsection{\texorpdfstring{sequenceEtalee()}{sequenceEtalee()}}
+{\footnotesize\ttfamily int$\ast$ sequence\+Etalee (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{total,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})}
+
+
+
+Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ total \\
+\hline
+{\em int} & ligne \\
+\hline
+{\em int} & colonne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Tableau qui correspond à la séquence du signal quand les utilisateurs émettent en même temps 
+\end{DoxyReturn}
+\mbox{\Hypertarget{emetteur_8h_a6dcaeb8647653f3579e1d0a7a55fc749}\label{emetteur_8h_a6dcaeb8647653f3579e1d0a7a55fc749}} 
+\index{emetteur.h@{emetteur.h}!sequencesUtilisateurs@{sequencesUtilisateurs}}
+\index{sequencesUtilisateurs@{sequencesUtilisateurs}!emetteur.h@{emetteur.h}}
+\doxysubsubsection{\texorpdfstring{sequencesUtilisateurs()}{sequencesUtilisateurs()}}
+{\footnotesize\ttfamily void sequences\+Utilisateurs (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice\+Hadamard,  }\item[{int}]{dim\+MatH,  }\item[{int $\ast$}]{message,  }\item[{int}]{longueur\+Message,  }\item[{int}]{ligne,  }\item[{int $\ast$$\ast$}]{total }\end{DoxyParamCaption})}
+
+
+
+Stocke la séquence émise par l\textquotesingle{}utilisateur dans la matrice total. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice\+Hadamard Matrice d\textquotesingle{}Hadamard \\
+\hline
+{\em int} & dim\+MatH Dimension matrice d\textquotesingle{}Hadamard \\
+\hline
+{\em int} & $\ast$ message Tableau qui correspond au message émis par l\textquotesingle{}utilisateur \\
+\hline
+{\em int} & longueur\+Message Taille du tableau contenant le message \\
+\hline
+{\em int} & ligne Ligne utilisée dans la matrice d\textquotesingle{}Hadamard pour coder la séquence \\
+\hline
+{\em int} & $\ast$$\ast$ total Matrice qui stocke le résultat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}

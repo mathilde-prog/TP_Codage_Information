@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nbutilisateursvalide_7',['nbUtilisateursValide',['../code_8c.html#a880ffda84f3be0a7d687259e925cf4fe',1,'code.c']]]
+  ['free_5fmatrice_12',['free_matrice',['../matrice__tab_8c.html#aefad84180b0052d1ed229d1d017e5217',1,'free_matrice(int **matrice, int lignes):&#160;matrice_tab.c'],['../matrice__tab_8h.html#aefad84180b0052d1ed229d1d017e5217',1,'free_matrice(int **matrice, int lignes):&#160;matrice_tab.c']]]
 ];
