@@ -1,0 +1,23 @@
+\hypertarget{structcodeLM}{}\doxysection{code\+LM Struct Reference}
+\label{structcodeLM}\index{codeLM@{codeLM}}
+
+
+Collaboration diagram for code\+LM\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structcodeLM_a417b9edb534fb77a2c9086be45414230}\label{structcodeLM_a417b9edb534fb77a2c9086be45414230}} 
+int {\bfseries longueur}
+\item 
+\mbox{\Hypertarget{structcodeLM_a8ea772df57fea0ad156359f8c56d6174}\label{structcodeLM_a8ea772df57fea0ad156359f8c56d6174}} 
+\mbox{\hyperlink{structpolynome}{polynome\+\_\+t}} {\bfseries polynome}
+\item 
+\mbox{\Hypertarget{structcodeLM_a27d992d90debcde260f01b0a4dff497d}\label{structcodeLM_a27d992d90debcde260f01b0a4dff497d}} 
+\mbox{\hyperlink{structregistre}{registre\+\_\+t}} {\bfseries registre}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+long\+\_\+max.\+h\end{DoxyCompactItemize}

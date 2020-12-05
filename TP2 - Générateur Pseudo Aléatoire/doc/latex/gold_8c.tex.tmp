@@ -1,0 +1,85 @@
+\hypertarget{gold_8c}{}\doxysection{Référence du fichier gold.\+c}
+\label{gold_8c}\index{gold.c@{gold.c}}
+
+
+Génération d\textquotesingle{}un codeur de Gold.  
+
+
+{\ttfamily \#include \char`\"{}gold.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de gold.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structgold__t}{gold\+\_\+t}} \mbox{\hyperlink{gold_8c_a3e8ea29de54601171338b853214daa2e}{initialiser\+Gold}} ()
+\begin{DoxyCompactList}\small\item\em Initialise une structure du type \mbox{\hyperlink{structgold__t}{gold\+\_\+t}} (longueur de la séquence à générer, polynôme et registres pour les 2 codes LM) \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{gold_8c_a31fa95bae871b637c0c76c9b464e7db4}{coder\+Gold}} (\mbox{\hyperlink{structgold__t}{gold\+\_\+t}} codeur\+Gold)
+\begin{DoxyCompactList}\small\item\em Codeur de Gold. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gold_8c_a0f969e3fffe91f6aebcd174ae5a164f1}{libere\+Gold}} (\mbox{\hyperlink{structgold__t}{gold\+\_\+t}} codeur\+Gold)
+\begin{DoxyCompactList}\small\item\em Libère l\textquotesingle{}espace alloué dynamiquement pour l\textquotesingle{}objet de type \mbox{\hyperlink{structgold__t}{gold\+\_\+t}} passé en paramètre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Génération d\textquotesingle{}un codeur de Gold. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{gold_8c_a31fa95bae871b637c0c76c9b464e7db4}\label{gold_8c_a31fa95bae871b637c0c76c9b464e7db4}} 
+\index{gold.c@{gold.c}!coderGold@{coderGold}}
+\index{coderGold@{coderGold}!gold.c@{gold.c}}
+\doxysubsubsection{\texorpdfstring{coderGold()}{coderGold()}}
+{\footnotesize\ttfamily int $\ast$ coder\+Gold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgold__t}{gold\+\_\+t}}}]{codeur\+Gold }\end{DoxyParamCaption})}
+
+
+
+Codeur de Gold. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \mbox{\hyperlink{structgold__t}{gold\+\_\+t}}} & codeur\+Gold Structure contenant tous les paramètres nécessaires pour générer la séquence codée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne la séquence codée générée par le codeur à Longueur Maximale 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gold_8c_a3e8ea29de54601171338b853214daa2e}\label{gold_8c_a3e8ea29de54601171338b853214daa2e}} 
+\index{gold.c@{gold.c}!initialiserGold@{initialiserGold}}
+\index{initialiserGold@{initialiserGold}!gold.c@{gold.c}}
+\doxysubsubsection{\texorpdfstring{initialiserGold()}{initialiserGold()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structgold__t}{gold\+\_\+t}} initialiser\+Gold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise une structure du type \mbox{\hyperlink{structgold__t}{gold\+\_\+t}} (longueur de la séquence à générer, polynôme et registres pour les 2 codes LM) 
+
+\begin{DoxyReturn}{Renvoie}
+Structure du type \mbox{\hyperlink{structgold__t}{gold\+\_\+t}} initialisée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gold_8c_a0f969e3fffe91f6aebcd174ae5a164f1}\label{gold_8c_a0f969e3fffe91f6aebcd174ae5a164f1}} 
+\index{gold.c@{gold.c}!libereGold@{libereGold}}
+\index{libereGold@{libereGold}!gold.c@{gold.c}}
+\doxysubsubsection{\texorpdfstring{libereGold()}{libereGold()}}
+{\footnotesize\ttfamily void libere\+Gold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgold__t}{gold\+\_\+t}}}]{codeur\+Gold }\end{DoxyParamCaption})}
+
+
+
+Libère l\textquotesingle{}espace alloué dynamiquement pour l\textquotesingle{}objet de type \mbox{\hyperlink{structgold__t}{gold\+\_\+t}} passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \mbox{\hyperlink{structgold__t}{gold\+\_\+t}}} & codeur\+Gold \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}

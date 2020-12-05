@@ -1,0 +1,45 @@
+\hypertarget{gold_8h}{}\doxysection{Référence du fichier gold.\+h}
+\label{gold_8h}\index{gold.h@{gold.h}}
+
+
+Structures et prototypes des fonctions permettant la mise en oeuvre d\textquotesingle{}un codeur de Gold.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}long\+\_\+max.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de gold.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgold__t}{gold\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure pour la mise en oeuvre d\textquotesingle{}un codeur de Gold. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gold_8h_a3e8ea29de54601171338b853214daa2e}\label{gold_8h_a3e8ea29de54601171338b853214daa2e}} 
+\mbox{\hyperlink{structgold__t}{gold\+\_\+t}} {\bfseries initialiser\+Gold} ()
+\item 
+\mbox{\Hypertarget{gold_8h_a425bd24a48de791c8a39eb0dd416a37c}\label{gold_8h_a425bd24a48de791c8a39eb0dd416a37c}} 
+int $\ast$ {\bfseries codeur\+Gold} (\mbox{\hyperlink{structgold__t}{gold\+\_\+t}} codeur\+Gold)
+\item 
+\mbox{\Hypertarget{gold_8h_a0f969e3fffe91f6aebcd174ae5a164f1}\label{gold_8h_a0f969e3fffe91f6aebcd174ae5a164f1}} 
+void {\bfseries libere\+Gold} (\mbox{\hyperlink{structgold__t}{gold\+\_\+t}} codeur\+Gold)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structures et prototypes des fonctions permettant la mise en oeuvre d\textquotesingle{}un codeur de Gold. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}

@@ -1,0 +1,162 @@
+\hypertarget{jpl_8h}{}\doxysection{Référence du fichier jpl.\+h}
+\label{jpl_8h}\index{jpl.h@{jpl.h}}
+
+
+Structure et prototypes des fonctions permettant la mise en oeuvre d\textquotesingle{}un codeur J\+PL.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}long\+\_\+max.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de jpl.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure pour la mise en oeuvre d\textquotesingle{}un codeur J\+PL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{jpl_8h_a7a18f1d2b66a88b6fce563c918d62198}{pgcd}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Calcule le pgcd des deux entiers passés en paramètres. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jpl_8h_a9e833ca32ebe2221af3b70990f1324fd}{est\+Premier}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Vérifie si les entiers passés en paramètres sont premiers entre eux (P\+G\+CD égal à 1) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jpl_8h_a0a0659704fac4962059fcb0e6b002f66}{tous\+Les\+Nb\+Etages\+Sont\+Premiers\+Entre\+Eux}} (\mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} jpl, int nb\+Code\+LM, int entier)
+\begin{DoxyCompactList}\small\item\em Vérifie si tous les nombres d\textquotesingle{}étages des registres sont premiers entre eux. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} \mbox{\hyperlink{jpl_8h_a32c059578baa55111e763bc57bf3f1b6}{initialiser\+J\+PL}} ()
+\begin{DoxyCompactList}\small\item\em Initialise une structure du type \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} (nombre de codes LM, codes LM (registes + polynôme), longueur de la séquence à générer) \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{jpl_8h_a763e9eeda36c24c37c65a172b79bea89}{coder\+J\+PL}} (\mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} codeur\+J\+PL)
+\begin{DoxyCompactList}\small\item\em Codeur J\+PL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jpl_8h_abdb3e556bb26d9903e14264c33ba340e}{libere\+J\+PL}} (\mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} codeur\+J\+PL)
+\begin{DoxyCompactList}\small\item\em Libère l\textquotesingle{}espace alloué dynamiquement pour l\textquotesingle{}objet de type \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} passé en paramètre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure et prototypes des fonctions permettant la mise en oeuvre d\textquotesingle{}un codeur J\+PL. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{jpl_8h_a763e9eeda36c24c37c65a172b79bea89}\label{jpl_8h_a763e9eeda36c24c37c65a172b79bea89}} 
+\index{jpl.h@{jpl.h}!coderJPL@{coderJPL}}
+\index{coderJPL@{coderJPL}!jpl.h@{jpl.h}}
+\doxysubsubsection{\texorpdfstring{coderJPL()}{coderJPL()}}
+{\footnotesize\ttfamily int$\ast$ coder\+J\+PL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}}}]{codeur\+J\+PL }\end{DoxyParamCaption})}
+
+
+
+Codeur J\+PL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}}} & codeur\+J\+PL Structure contenant tous les paramètres nécessaires pour générer la séquence codée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne la séquence codée générée par le codeur J\+PL 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jpl_8h_a9e833ca32ebe2221af3b70990f1324fd}\label{jpl_8h_a9e833ca32ebe2221af3b70990f1324fd}} 
+\index{jpl.h@{jpl.h}!estPremier@{estPremier}}
+\index{estPremier@{estPremier}!jpl.h@{jpl.h}}
+\doxysubsubsection{\texorpdfstring{estPremier()}{estPremier()}}
+{\footnotesize\ttfamily int est\+Premier (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Vérifie si les entiers passés en paramètres sont premiers entre eux (P\+G\+CD égal à 1) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & a Entier 1 \\
+\hline
+{\em int} & b Entier 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si les entiers sont premiers entre eux. 0 sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jpl_8h_a32c059578baa55111e763bc57bf3f1b6}\label{jpl_8h_a32c059578baa55111e763bc57bf3f1b6}} 
+\index{jpl.h@{jpl.h}!initialiserJPL@{initialiserJPL}}
+\index{initialiserJPL@{initialiserJPL}!jpl.h@{jpl.h}}
+\doxysubsubsection{\texorpdfstring{initialiserJPL()}{initialiserJPL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} initialiser\+J\+PL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise une structure du type \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} (nombre de codes LM, codes LM (registes + polynôme), longueur de la séquence à générer) 
+
+\begin{DoxyReturn}{Renvoie}
+Structure du type \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} initialisée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jpl_8h_abdb3e556bb26d9903e14264c33ba340e}\label{jpl_8h_abdb3e556bb26d9903e14264c33ba340e}} 
+\index{jpl.h@{jpl.h}!libereJPL@{libereJPL}}
+\index{libereJPL@{libereJPL}!jpl.h@{jpl.h}}
+\doxysubsubsection{\texorpdfstring{libereJPL()}{libereJPL()}}
+{\footnotesize\ttfamily void libere\+J\+PL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}}}]{codeur\+J\+PL }\end{DoxyParamCaption})}
+
+
+
+Libère l\textquotesingle{}espace alloué dynamiquement pour l\textquotesingle{}objet de type \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}} passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}}} & codeur\+J\+PL \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jpl_8h_a7a18f1d2b66a88b6fce563c918d62198}\label{jpl_8h_a7a18f1d2b66a88b6fce563c918d62198}} 
+\index{jpl.h@{jpl.h}!pgcd@{pgcd}}
+\index{pgcd@{pgcd}!jpl.h@{jpl.h}}
+\doxysubsubsection{\texorpdfstring{pgcd()}{pgcd()}}
+{\footnotesize\ttfamily int pgcd (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Calcule le pgcd des deux entiers passés en paramètres. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & a Entier 1 \\
+\hline
+{\em int} & b Entier 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+pgcd de a et b 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jpl_8h_a0a0659704fac4962059fcb0e6b002f66}\label{jpl_8h_a0a0659704fac4962059fcb0e6b002f66}} 
+\index{jpl.h@{jpl.h}!tousLesNbEtagesSontPremiersEntreEux@{tousLesNbEtagesSontPremiersEntreEux}}
+\index{tousLesNbEtagesSontPremiersEntreEux@{tousLesNbEtagesSontPremiersEntreEux}!jpl.h@{jpl.h}}
+\doxysubsubsection{\texorpdfstring{tousLesNbEtagesSontPremiersEntreEux()}{tousLesNbEtagesSontPremiersEntreEux()}}
+{\footnotesize\ttfamily int tous\+Les\+Nb\+Etages\+Sont\+Premiers\+Entre\+Eux (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}}}]{jpl,  }\item[{int}]{nb\+Code\+LM,  }\item[{int}]{entier }\end{DoxyParamCaption})}
+
+
+
+Vérifie si tous les nombres d\textquotesingle{}étages des registres sont premiers entre eux. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \mbox{\hyperlink{structjpl__t}{jpl\+\_\+t}}} & jpl \\
+\hline
+{\em int} & nb\+Code Nombre de code LM \\
+\hline
+{\em int} & entier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 tous les nombres d\textquotesingle{}étages des registres sont premiers entre eux. 0 sinon. 
+\end{DoxyReturn}

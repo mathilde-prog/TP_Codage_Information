@@ -1,0 +1,151 @@
+\hypertarget{long__max_8c}{}\doxysection{long\+\_\+max.\+c File Reference}
+\label{long__max_8c}\index{long\_max.c@{long\_max.c}}
+
+
+Génération d\textquotesingle{}un codeur à Longueur Maximale.  
+
+
+{\ttfamily \#include \char`\"{}long\+\_\+max.\+h\char`\"{}}\newline
+Include dependency graph for long\+\_\+max.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{long__max_8c_a7fa65215f70b4bd1714863c7e5168b92}{afficher\+Matrice}} (int $\ast$$\ast$matrice, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Affiche la matrice passée en paramètre. \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \mbox{\hyperlink{long__max_8c_a5a58c1f419c3613794015192052ce57c}{alloue\+\_\+matrice}} (int lignes, int colonnes)
+\begin{DoxyCompactList}\small\item\em Alloue une matrice dont les dimensions sont passées en paramètres. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} \mbox{\hyperlink{long__max_8c_a10501e1e99b14db9905fc8e825e89674}{initialiser\+LM}} ()
+\begin{DoxyCompactList}\small\item\em Initialise une structure du type \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} (longueur de la séquence à générer, polynôme et registres) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{long__max_8c_a0fada6a60994e61646b807fc023475a2}{libere}} (\mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} codeur)
+\begin{DoxyCompactList}\small\item\em Libère l\textquotesingle{}espace alloué dynamiquement pour l\textquotesingle{}objet de type \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} passé en paramètre. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{long__max_8c_a65fa9903c74f28ea0a0f421e11476b5b}{coder}} (\mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} codeur)
+\begin{DoxyCompactList}\small\item\em Codeur à Longueur Maximale. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{long__max_8c_a3c0298aa3645ab959f0a4c6b265186eb}{affiche\+Codeur}} (\mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} codeur)
+\begin{DoxyCompactList}\small\item\em Affiche la structure permettant la génération d\textquotesingle{}un code à Longueur Maximale (longueur séquence générée, registres, polynôme). Utile pour déboguer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Génération d\textquotesingle{}un codeur à Longueur Maximale. 
+
+\begin{DoxyAuthor}{Author}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{long__max_8c_a3c0298aa3645ab959f0a4c6b265186eb}\label{long__max_8c_a3c0298aa3645ab959f0a4c6b265186eb}} 
+\index{long\_max.c@{long\_max.c}!afficheCodeur@{afficheCodeur}}
+\index{afficheCodeur@{afficheCodeur}!long\_max.c@{long\_max.c}}
+\doxysubsubsection{\texorpdfstring{afficheCodeur()}{afficheCodeur()}}
+{\footnotesize\ttfamily void affiche\+Codeur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}}}]{codeur }\end{DoxyParamCaption})}
+
+
+
+Affiche la structure permettant la génération d\textquotesingle{}un code à Longueur Maximale (longueur séquence générée, registres, polynôme). Utile pour déboguer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}}} & codeur Structure contenant tous les paramètres nécessaires pour générer la séquence codée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{long__max_8c_a7fa65215f70b4bd1714863c7e5168b92}\label{long__max_8c_a7fa65215f70b4bd1714863c7e5168b92}} 
+\index{long\_max.c@{long\_max.c}!afficherMatrice@{afficherMatrice}}
+\index{afficherMatrice@{afficherMatrice}!long\_max.c@{long\_max.c}}
+\doxysubsubsection{\texorpdfstring{afficherMatrice()}{afficherMatrice()}}
+{\footnotesize\ttfamily void afficher\+Matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})}
+
+
+
+Affiche la matrice passée en paramètre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & $\ast$$\ast$ matrice Matrice \\
+\hline
+{\em int} & ligne Nombre de lignes \\
+\hline
+{\em int} & colonne Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{long__max_8c_a5a58c1f419c3613794015192052ce57c}\label{long__max_8c_a5a58c1f419c3613794015192052ce57c}} 
+\index{long\_max.c@{long\_max.c}!alloue\_matrice@{alloue\_matrice}}
+\index{alloue\_matrice@{alloue\_matrice}!long\_max.c@{long\_max.c}}
+\doxysubsubsection{\texorpdfstring{alloue\_matrice()}{alloue\_matrice()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ alloue\+\_\+matrice (\begin{DoxyParamCaption}\item[{int}]{lignes,  }\item[{int}]{colonnes }\end{DoxyParamCaption})}
+
+
+
+Alloue une matrice dont les dimensions sont passées en paramètres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & lignes Nombre de lignes \\
+\hline
+{\em int} & colonnes Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrice allouée dynamiquement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{long__max_8c_a65fa9903c74f28ea0a0f421e11476b5b}\label{long__max_8c_a65fa9903c74f28ea0a0f421e11476b5b}} 
+\index{long\_max.c@{long\_max.c}!coder@{coder}}
+\index{coder@{coder}!long\_max.c@{long\_max.c}}
+\doxysubsubsection{\texorpdfstring{coder()}{coder()}}
+{\footnotesize\ttfamily int $\ast$ coder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}}}]{codeur }\end{DoxyParamCaption})}
+
+
+
+Codeur à Longueur Maximale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}}} & codeur Structure contenant tous les paramètres nécessaires pour générer la séquence codée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne la séquence codée générée par le codeur à Longueur Maximale 
+\end{DoxyReturn}
+\mbox{\Hypertarget{long__max_8c_a10501e1e99b14db9905fc8e825e89674}\label{long__max_8c_a10501e1e99b14db9905fc8e825e89674}} 
+\index{long\_max.c@{long\_max.c}!initialiserLM@{initialiserLM}}
+\index{initialiserLM@{initialiserLM}!long\_max.c@{long\_max.c}}
+\doxysubsubsection{\texorpdfstring{initialiserLM()}{initialiserLM()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} initialiser\+LM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise une structure du type \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} (longueur de la séquence à générer, polynôme et registres) 
+
+\begin{DoxyReturn}{Returns}
+Structure du type \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} initialisée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{long__max_8c_a0fada6a60994e61646b807fc023475a2}\label{long__max_8c_a0fada6a60994e61646b807fc023475a2}} 
+\index{long\_max.c@{long\_max.c}!libere@{libere}}
+\index{libere@{libere}!long\_max.c@{long\_max.c}}
+\doxysubsubsection{\texorpdfstring{libere()}{libere()}}
+{\footnotesize\ttfamily void libere (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}}}]{codeur }\end{DoxyParamCaption})}
+
+
+
+Libère l\textquotesingle{}espace alloué dynamiquement pour l\textquotesingle{}objet de type \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}} passé en paramètre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{structcodeLM__t}{code\+L\+M\+\_\+t}}} & codeur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Rien 
+\end{DoxyReturn}

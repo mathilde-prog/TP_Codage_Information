@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP2 - Générateur Pseudo Aléatoire:  Fichier source de jpl.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TP2 - Générateur Pseudo Aléatoire
+   </div>
+   <div id="projectbrief">Mise en oeuvre d&#39;un générateur Pseudo Aléatoire</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">jpl.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="jpl_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="long__max_8h.html">long_max.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structjpl__t.html">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structjpl__t.html#a49246f636d9fbac4f3758f65d9176b8f">   18</a></span>&#160;  <a class="code" href="structcodeLM__t.html">codeLM_t</a> * <a class="code" href="structjpl__t.html#a49246f636d9fbac4f3758f65d9176b8f">codesLM</a>;     </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structjpl__t.html#a745e8962e102d5796c85200fc2c7cbd8">   19</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="structjpl__t.html#a745e8962e102d5796c85200fc2c7cbd8">nbCodesLM</a>;        </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structjpl__t.html#ad90b9e19eea19e9fbeb7d608b984536a">   20</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="structjpl__t.html#ad90b9e19eea19e9fbeb7d608b984536a">longueurSequence</a>; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <a class="code" href="structjpl__t.html">jpl_t</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> <a class="code" href="jpl_8h.html#a7a18f1d2b66a88b6fce563c918d62198">pgcd</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="jpl_8h.html#a9e833ca32ebe2221af3b70990f1324fd">estPremier</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="jpl_8h.html#a0a0659704fac4962059fcb0e6b002f66">tousLesNbEtagesSontPremiersEntreEux</a>(<a class="code" href="structjpl__t.html">jpl_t</a> jpl, <span class="keywordtype">int</span> nbCodeLM, <span class="keywordtype">int</span> entier);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<a class="code" href="structjpl__t.html">jpl_t</a> <a class="code" href="jpl_8h.html#a32c059578baa55111e763bc57bf3f1b6">initialiserJPL</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">int</span> * <a class="code" href="jpl_8h.html#a763e9eeda36c24c37c65a172b79bea89">coderJPL</a>(<a class="code" href="structjpl__t.html">jpl_t</a> codeurJPL);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="jpl_8h.html#abdb3e556bb26d9903e14264c33ba340e">libereJPL</a>(<a class="code" href="structjpl__t.html">jpl_t</a> codeurJPL);</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructjpl__t_html"><div class="ttname"><a href="structjpl__t.html">jpl_t</a></div><div class="ttdoc">Structure pour la mise en oeuvre d'un codeur JPL.</div><div class="ttdef"><b>Definition:</b> jpl.h:17</div></div>
+<div class="ttc" id="ajpl_8h_html_a32c059578baa55111e763bc57bf3f1b6"><div class="ttname"><a href="jpl_8h.html#a32c059578baa55111e763bc57bf3f1b6">initialiserJPL</a></div><div class="ttdeci">jpl_t initialiserJPL()</div><div class="ttdoc">Initialise une structure du type jpl_t (nombre de codes LM, codes LM (registes + polynôme),...</div><div class="ttdef"><b>Definition:</b> jpl.c:73</div></div>
+<div class="ttc" id="ajpl_8h_html_abdb3e556bb26d9903e14264c33ba340e"><div class="ttname"><a href="jpl_8h.html#abdb3e556bb26d9903e14264c33ba340e">libereJPL</a></div><div class="ttdeci">void libereJPL(jpl_t codeurJPL)</div><div class="ttdoc">Libère l'espace alloué dynamiquement pour l'objet de type jpl_t passé en paramètre.</div><div class="ttdef"><b>Definition:</b> jpl.c:187</div></div>
+<div class="ttc" id="ajpl_8h_html_a0a0659704fac4962059fcb0e6b002f66"><div class="ttname"><a href="jpl_8h.html#a0a0659704fac4962059fcb0e6b002f66">tousLesNbEtagesSontPremiersEntreEux</a></div><div class="ttdeci">int tousLesNbEtagesSontPremiersEntreEux(jpl_t jpl, int nbCodeLM, int entier)</div><div class="ttdoc">Vérifie si tous les nombres d'étages des registres sont premiers entre eux.</div><div class="ttdef"><b>Definition:</b> jpl.c:57</div></div>
+<div class="ttc" id="astructcodeLM__t_html"><div class="ttname"><a href="structcodeLM__t.html">codeLM_t</a></div><div class="ttdoc">Structure pour générer un code à longueur maximale.</div><div class="ttdef"><b>Definition:</b> long_max.h:35</div></div>
+<div class="ttc" id="along__max_8h_html"><div class="ttname"><a href="long__max_8h.html">long_max.h</a></div><div class="ttdoc">Structures et prototypes des fonctions permettant la génération d'un codeur à Longueur Maximale.</div></div>
+<div class="ttc" id="astructjpl__t_html_ad90b9e19eea19e9fbeb7d608b984536a"><div class="ttname"><a href="structjpl__t.html#ad90b9e19eea19e9fbeb7d608b984536a">jpl_t::longueurSequence</a></div><div class="ttdeci">int longueurSequence</div><div class="ttdoc">Longueur de la séquence générée.</div><div class="ttdef"><b>Definition:</b> jpl.h:20</div></div>
+<div class="ttc" id="astructjpl__t_html_a49246f636d9fbac4f3758f65d9176b8f"><div class="ttname"><a href="structjpl__t.html#a49246f636d9fbac4f3758f65d9176b8f">jpl_t::codesLM</a></div><div class="ttdeci">codeLM_t * codesLM</div><div class="ttdoc">Codes à longueur maximale.</div><div class="ttdef"><b>Definition:</b> jpl.h:18</div></div>
+<div class="ttc" id="ajpl_8h_html_a9e833ca32ebe2221af3b70990f1324fd"><div class="ttname"><a href="jpl_8h.html#a9e833ca32ebe2221af3b70990f1324fd">estPremier</a></div><div class="ttdeci">int estPremier(int a, int b)</div><div class="ttdoc">Vérifie si les entiers passés en paramètres sont premiers entre eux (PGCD égal à 1)</div><div class="ttdef"><b>Definition:</b> jpl.c:45</div></div>
+<div class="ttc" id="ajpl_8h_html_a7a18f1d2b66a88b6fce563c918d62198"><div class="ttname"><a href="jpl_8h.html#a7a18f1d2b66a88b6fce563c918d62198">pgcd</a></div><div class="ttdeci">int pgcd(int a, int b)</div><div class="ttdoc">Calcule le pgcd des deux entiers passés en paramètres.</div><div class="ttdef"><b>Definition:</b> jpl.c:18</div></div>
+<div class="ttc" id="astructjpl__t_html_a745e8962e102d5796c85200fc2c7cbd8"><div class="ttname"><a href="structjpl__t.html#a745e8962e102d5796c85200fc2c7cbd8">jpl_t::nbCodesLM</a></div><div class="ttdeci">int nbCodesLM</div><div class="ttdoc">Nombre de codes à longueur maximale.</div><div class="ttdef"><b>Definition:</b> jpl.h:19</div></div>
+<div class="ttc" id="ajpl_8h_html_a763e9eeda36c24c37c65a172b79bea89"><div class="ttname"><a href="jpl_8h.html#a763e9eeda36c24c37c65a172b79bea89">coderJPL</a></div><div class="ttdeci">int * coderJPL(jpl_t codeurJPL)</div><div class="ttdoc">Codeur JPL.</div><div class="ttdef"><b>Definition:</b> jpl.c:153</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
