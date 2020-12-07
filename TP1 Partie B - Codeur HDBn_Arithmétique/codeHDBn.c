@@ -2,6 +2,52 @@
 #include <stdlib.h>
 #include <string.h>
 
+void calculer_codage(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f){
+  int i, a;
+  float bornInf, bornSup, intervalle;
+
+
+  for(i=0; i<longueurData; i++){ //Parcours du message à coder
+    for(a=0; a<nb_caracteres; a++){ //parcours de la matrice où sont stockés les données
+      if(matArithmetique[a][0] == (float)data[i]){
+        if(i>0){
+          intervalle = bornSup - bornInf;
+          bornSup = bornInf+(matArithmetique[a][3]*intervalle);
+          bornInf = bornInf+(matArithmetique[a][2]*intervalle);
+        }
+        else{ //Première lettre
+          intervalle = matArithmetique[a][3] - matArithmetique[a][2];
+          bornInf = matArithmetique[a][2];
+          bornSup = matArithmetique[a][3];
+        }
+      }
+    }
+  }
+  *f = bornInf;
+  printf(" void calculer_codage() : f = %.10f\n", *f);
+}
+
+//Tri bulle d'une matrice d'entier en fonction de la colonne 0
+void triBulle_Mat_c0(int ** Mat, int lignes){
+  int i, j, echange1, echange2;
+
+  for(i = 0; i < lignes; i++){
+    for(j = lignes-1; j > i; j--){
+      if(Mat[j][0] < Mat[j-1][0]){
+        echange1 = Mat[j-1][0];
+        echange2 = Mat[j-1][1];
+
+        Mat[j-1][0] = Mat[j][0];
+        Mat[j-1][1] = Mat[j][1];
+
+        Mat[j][0] = echange1;
+        Mat[j][1] = echange2;
+      }
+    }
+  }
+}
+
+//Affichage d'un tableau d'entier
 void afficherTab(int * tab, int nb){
   for(int i=0; i<nb; i++){
     printf("%d ", tab[i]);
@@ -9,37 +55,22 @@ void afficherTab(int * tab, int nb){
   printf("\n");
 }
 
-//Tri bulle d'une matrice en fonction de la colonne 0
-int ** triBulle_Mat_c0(int ** Mat, int lignes){
-  int i, j, copy0, copy1;
-  for(j=0; j < lignes; j++){
-    for(i = 0; i < lignes; i++){
-      if(Mat[i][0] > Mat[i+1][0]){
-        copy0 = Mat[i][0];
-        copy1 = Mat[i][1];
+//Affichage d'une matrice de float
+void afficherMatrice_float(float ** matrice, int ligne, int colonne){
+  int l;
 
-        Mat[i][0] = Mat[i+1][0];
-        Mat[i][1] = Mat[i+1][1];
-
-        Mat[i+1][0] = copy0;
-        Mat[i+1][1] = copy1;
-      }
-    }
-  }
-}
-
-void afficherMatrice(int ** matrice, int ligne, int colonne ){
-  int l, c;
-
+  printf(" |----------------------------|\n");
+  printf(" | Carac | Fréq | Intervalles |\n");
+  printf(" |----------------------------|\n");
   for(l = 0; l < ligne; l++){
-    for(c = 0; c < colonne; c++){
-      printf("%2d ",matrice[l][c]);
-    }
-    printf("\n");
+    printf(" |   %c   |  %d   | %.2f ; %.2f |\n", (char)matrice[l][0], (int)matrice[l][1], matrice[l][2], matrice[l][3]);
   }
+  printf(" |----------------------------|\n");
+  printf("\n");
 }
 
-int copie_Tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
+//Copie un tableau d'entiers dans un matrice d'entiers à la colonne 0 et ajoute la fréquence de la valeur dans la 2ème colonne
+int tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   int compteur, i, j, v;
   *nb_caracteres = 0;
   for(i=0; i<lignes; i++){
@@ -63,6 +94,7 @@ int copie_Tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   }
 }
 
+//Allocation d'une matrice d'entiers
 int ** alloue_matrice (int lignes, int colonnes){
   int l;
   int ** matrice = malloc(lignes*sizeof(int*));
@@ -74,11 +106,33 @@ int ** alloue_matrice (int lignes, int colonnes){
   return matrice;
 }
 
+//Allocation d'une matrice d'entiers
+float ** alloue_matrice_float (int lignes, int colonnes){
+  int l;
+  float ** matrice = malloc(lignes*sizeof(float*));
+
+  for(l = 0; l < lignes; l++){
+    matrice[l] = malloc(colonnes*sizeof(float));
+  }
+
+  return matrice;
+}
+
 void free_matrice(int ** matrice, int lignes){
   int i;
 
   for(i = 0; i < lignes; i++){
     free((int*) matrice[i]);
+  }
+
+  free(matrice);
+}
+
+void free_matrice_float(float ** matrice, int lignes){
+  int i;
+
+  for(i = 0; i < lignes; i++){
+    free((float*) matrice[i]);
   }
 
   free(matrice);
@@ -134,7 +188,7 @@ int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * reset, int *
           dernierUn = reset[i];
         }
       }
-
+      printf(" Message codé : ");
       afficherTab(reset, longueurData);
       break;
     }
@@ -142,51 +196,44 @@ int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * reset, int *
     /* Arithmétique */
     case 1 : {
       int ** matOrdreAlpha_Freq = alloue_matrice(longueurData, 2);
-      int nb_caracteres, ll, le, c, l;
+      int nb_caracteres, ll, le, c;
+      float intervalleRef = 1/(float)longueurData;
+      float interMin = 0.0, interMax;
 
-      /* Copie de data dans un tableau 'matOrdreAlpha_Freq' */
-      copie_Tab2Mat(data, matOrdreAlpha_Freq, longueurData, &nb_caracteres);
-      afficherMatrice(matOrdreAlpha_Freq, longueurData, 2);
-      printf("\n");
+      /* Copie de data dans une matrice 'matOrdreAlpha_Freq' de taille 2 */
+      tab2Mat(data, matOrdreAlpha_Freq, longueurData, &nb_caracteres);
       /* Tri par ordre croissant des valeurs ascii (ordre alphabétique) */
-      //triBulle_Mat_c0(matOrdreAlpha_Freq, longueurData);
-      printf("Matrice triée : \n");
-      afficherMatrice(matOrdreAlpha_Freq, longueurData, 2);
-      printf("\n");
+      triBulle_Mat_c0(matOrdreAlpha_Freq, longueurData);
 
-      //Allocation d'une matrice
-      float ** matArithmetique = malloc(nb_caracteres*sizeof(float*));
-      for(l = 0; l < nb_caracteres; l++){
-        matArithmetique[l] = malloc(4*sizeof(float));
-      }
-      float intervalleRef = 1/longueurData;
-      float interMin = 0, interMax;
+      //Allocation d'une matrice de taille 4
+      float ** matArithmetique = alloue_matrice_float(nb_caracteres, 4);
 
       /* Copie de matOrdreAlpha_Freq dans une matrice 'matArithmetique' + ajout intervalles */
-      for(ll=0, le=0; ll<longueurData; ll++){
+      for(ll=0, le=0; ll<longueurData; ll++){ // ll : ligne lecture, le : ligne écriture
         //Ajout qu'une seule fois des caractères apparaissant plusieurs fois dans la séquence à coder
         if(matOrdreAlpha_Freq[ll][1] != 0){
-          for(c=0, c=0; c<2; c++){
+          for(c=0; c<2; c++){
             matArithmetique[le][c] = matOrdreAlpha_Freq[ll][c];
           }
+          /* Ajout des intervalles */
+          matArithmetique[le][2] = interMin;
+          interMax = interMin+(matArithmetique[le][1]*intervalleRef);
+          matArithmetique[le][3] = interMax;
+          interMin = interMax;
           le++;
         }
-        /* Ajout des intervalles */
-        matArithmetique[le][2] = interMin;
-        interMax = interMin+(matArithmetique[le][1]*intervalleRef);
-        matArithmetique[le][3] = interMax;
-        interMin = interMax;
       }
+      afficherMatrice_float(matArithmetique, nb_caracteres, 4);
 
+      calculer_codage(matArithmetique, data, nb_caracteres, longueurData, &f);
 
-      afficherMatrice(matArithmetique, longueurData, 4);
+      //printf("encodeurHDBn_Arithmetique : f = %.10f\n", *f);
 
       free_matrice(matOrdreAlpha_Freq,longueurData);
-      free_matrice(matArithmetique,nb_caracteres);
-
+      free_matrice_float(matArithmetique,nb_caracteres);
     }
-
   }
+
 }
 
 
@@ -196,18 +243,19 @@ int main(){
 
   /* Récupération de la méthode d'encodage */
   do{
-    printf("Quelle méthode de codage voulez-vous utiliser ?\n");
-    printf("0 : HDBn \n1 : Arithmétique\n");
+    printf(" Méthodes de codage proposées :\n");
+    printf("    0 : HDBn \n    1 : Arithmétique\n");
+    printf(" Quelle méthode de codage voulez-vous utiliser ? ");
     scanf("%d", &encodeur);
     if((encodeur!=0) && (encodeur!=1))
       printf("ERREUR : La valeur saisit doit être 0 ou 1.\n");
   }while((encodeur!=0) && (encodeur!=1));
 
   do{
-    printf("Veuillez saisir la longueur de la séquence à coder (>1) : ");
+    printf("\n Veuillez saisir la longueur de la séquence à coder (>1) : ");
     scanf("%d", &longueurData);
     if(longueurData<=1)
-      printf("ERREUR : La longueur doit être supérieure à 1.\n");
+      printf(" ERREUR : La longueur doit être supérieure à 1.\n");
   }while(longueurData<=1);
 
   int * data = malloc(sizeof(int)*longueurData);
@@ -217,18 +265,20 @@ int main(){
     /* Code HDBn */
     case 0 : {
       do{
-        printf("Avec quel HDBn voulez-vous coder ?\n");
-        printf("2 : HDB2 \n 3 : HDB3\n 4 : HDB4\n");
+        printf("\n HDBn disponibles :\n");
+        printf("    2 : HDB2 \n    3 : HDB3\n    4 : HDB4\n");
+        printf(" Avec quel HDBn voulez-vous coder ? ");
         scanf("%d", &encodeur);
         if((encodeur<2) || (encodeur>4))
-          printf("ERREUR : la valeur saisit doit être comprise entre 2 et 4.\n");
+          printf(" ERREUR : la valeur saisit doit être comprise entre 2 et 4.\n");
       }while((encodeur<2) || (encodeur>4));
 
-      printf("Veuillez saisir la séquence à coder : \n");
+      printf("\n Veuillez saisir la séquence à coder : \n");
       for(i=0; i<longueurData; i++){
-        printf("Bit n°i : ");
+        printf(" Bit n°i : ");
         scanf("%d",&data[i]);
       }
+      printf("\n");
 
       break;
     }
@@ -237,8 +287,9 @@ int main(){
     case 1 : {
       char chaine[longueurData];
 
-      printf("Veuillez saisir la séquence à coder (entrée pour finir): \n");
+      printf("\n Veuillez saisir la séquence à coder (entrée pour finir): ");
       scanf(" %[^\n]", chaine);
+      printf("\n");
 
       for(i=0; i<longueurData; i++){
           data[i] = chaine[i];
@@ -249,6 +300,7 @@ int main(){
   }
 
   encodeurHDBn_Arithmetique(encodeur, longueurData, reset, data, &f, &p, &n);
+  (encodeur == 1) ? printf("\n Message codé : %.10f\n", f) : printf("\n P=%d  N=%d\n", p, n);
 
   free(data);
   free(reset);
