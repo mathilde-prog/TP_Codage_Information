@@ -24,7 +24,6 @@ void calculer_codage(float ** matArithmetique, int * data, int nb_caracteres, in
     }
   }
   *f = bornInf;
-  printf(" void calculer_codage() : f = %.10f\n", *f);
 }
 
 //Tri bulle d'une matrice d'entier en fonction de la colonne 0
@@ -139,13 +138,14 @@ void free_matrice_float(float ** matrice, int lignes){
 }
 
 
-int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * reset, int * data, float * f, int * p, int * n){
+int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n){
   int i;
 
   switch(encodeur){
     /* HDBn */
     case 2 : case 3 : case 4 : {
       int nb = encodeur; //Nombre de '0' a ne pas dépasser
+      int * code = malloc(sizeof(int)*longueurData);
 
       int dernierViol = -1;
       int dernierUn = -1;
@@ -156,40 +156,57 @@ int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * reset, int *
           nbZero++;
           if(nbZero == nb+1){ //trop de zero à la suite
             if(dernierViol > 0){ //dernierViol positif
-              reset[i] = -1; //V-
+              code[i] = -1; //V-
               if(dernierUn > 0){ //dernierUn positif
-                reset[i-nb] = -1; //B-
-                dernierUn = reset[i-nb];
+                code[i-nb] = -1; //B-
+                dernierUn = code[i-nb];
               }
             }
             else{ //dernierViol négatif
-              reset[i] = 1; //V+
+              code[i] = 1; //V+
               if(dernierUn < 0){ //dernierUn négatif
-                reset[i-nb] = 1; //B+
-                dernierUn = reset[i-nb];
+                code[i-nb] = 1; //B+
+                dernierUn = code[i-nb];
               }
             }
-            dernierViol = reset[i];
+            dernierViol = code[i];
             nbZero=0;
           }
           else{
-            reset[i] = 0;
+            code[i] = 0;
           }
         }
 
         else{ //bite == 1 : code bipolaire
           nbZero=0;
           if(dernierUn < 0){ ///dernierUn negatif
-            reset[i]=1;
+            code[i]=1;
           }
           else{//dernierUn positif
-            reset[i]=-1;
+            code[i]=-1;
           }
-          dernierUn = reset[i];
+          dernierUn = code[i];
         }
       }
       printf(" Message codé : ");
-      afficherTab(reset, longueurData);
+      afficherTab(code, longueurData);
+
+      for(i=0; i<longueurData; i++){
+        switch (code[i]) {
+          case 0 :  p[i] = 0;
+                    n[i] = 0;
+                    break;
+          case 1 :  p[i] = 1;
+                    n[i] = 0;
+                    break;
+          case -1 : p[i] = 0;
+                    n[i] = 1;
+                    break;
+          default : printf("ERREUR : valeur code[%d] incorrecte: %d .\n", i, code[i]);
+                    break;
+        }
+      }
+      free(code);
       break;
     }
 
@@ -225,9 +242,7 @@ int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * reset, int *
       }
       afficherMatrice_float(matArithmetique, nb_caracteres, 4);
 
-      calculer_codage(matArithmetique, data, nb_caracteres, longueurData, &f);
-
-      //printf("encodeurHDBn_Arithmetique : f = %.10f\n", *f);
+      calculer_codage(matArithmetique, data, nb_caracteres, longueurData, f);
 
       free_matrice(matOrdreAlpha_Freq,longueurData);
       free_matrice_float(matArithmetique,nb_caracteres);
@@ -238,8 +253,11 @@ int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * reset, int *
 
 
 int main(){
-  int p, n, encodeur, longueurData, i;
+  int encodeur, longueurData, i;
   float f;
+
+  int * p = malloc(sizeof(int)*longueurData);
+  int * n = malloc(sizeof(int)*longueurData);
 
   /* Récupération de la méthode d'encodage */
   do{
@@ -259,7 +277,6 @@ int main(){
   }while(longueurData<=1);
 
   int * data = malloc(sizeof(int)*longueurData);
-  int * reset = malloc(sizeof(int)*longueurData);
 
   switch(encodeur){
     /* Code HDBn */
@@ -299,10 +316,16 @@ int main(){
     }
   }
 
-  encodeurHDBn_Arithmetique(encodeur, longueurData, reset, data, &f, &p, &n);
-  (encodeur == 1) ? printf("\n Message codé : %.10f\n", f) : printf("\n P=%d  N=%d\n", p, n);
+  encodeurHDBn_Arithmetique(encodeur, longueurData, data, &f, p, n);
+  if(encodeur == 1)
+    printf("\n Message codé : %.10f\n", f);
+  else{
+    printf(" P : ");
+    afficherTab(p, longueurData);
+    printf(" N : ");
+    afficherTab(n, longueurData);
+  }
+
 
   free(data);
-  free(reset);
-
 }
