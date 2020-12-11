@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "matrice_tab.h"
 /**
  * \file emetteur.h
  * \brief Tous les prototypes de fonctions relatives à l'émetteur
@@ -10,7 +11,10 @@
 */
 
 int nbUtilisateursValide(int nb);
-void choixNbUtilisateurs(int * nbUtilisateurs);
-void creeMatriceHadamard(int ** matriceHadamard, int dimension);
-void sequencesUtilisateurs(int ** matriceHadamard, int dimension, int * emission, int taille, int ligne, int ** total);
-int * sequenceEtalee (int ** total, int ligne, int colonne);
+int choixNbUtilisateurs();
+int saisieLongueurMessages();
+int ** creeMatriceHadamard(int dimension);
+void afficherSequencesCodees(int ** sequencesCodees, int lignes, int colonnes);
+int ** codageSequences (int nbUtilisateurs, int ** matriceHadamard, int dimensionHadamard, int ** messages, int longueurMessages, int verbose);
+int * etalement(int nbUtilisateurs, int dimensionHadamard, int longueurMessages, int ** sequencesCodees, int verbose);
+int * emetteur (int nbUtilisateurs, int longueurMessages, int verbose);

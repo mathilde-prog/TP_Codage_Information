@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TP1 Code d&#39;Etalement (1/3):  Fichier source de recepteur.h</title>
+<title>TP1 Partie A - Code d&#39;Etalement:  Fichier source de recepteur.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">TP1 Code d&#39;Etalement (1/3)
+   <div id="projectname">TP1 Partie A - Code d&#39;Etalement
    </div>
    <div id="projectbrief">Mise en oeuvre d&#39;un codeur de Hadamard. Programmation en C.</div>
   </td>
@@ -69,11 +69,11 @@ $(function() {
 <a href="recepteur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> ** <a class="code" href="recepteur_8h.html#ad2639b3d8da0305402a2a746b64c4093">desetalementMessage</a> (<span class="keywordtype">int</span> ** matriceHadamard, <span class="keywordtype">int</span> * sequence, <span class="keywordtype">int</span> nbUtilisateurs, <span class="keywordtype">int</span> dimMat, <span class="keywordtype">int</span> longueurMessage);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="recepteur_8h.html#abf7ca8e5c8568c3a515d894fb2878568">afficherMessageRecu</a> (<span class="keywordtype">int</span> ** message, <span class="keywordtype">int</span> longueurMessage, <span class="keywordtype">int</span> nbUtilisateurs);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> ** <a class="code" href="recepteur_8h.html#afdb263820bc073884707d1a40e97ed5e">desetalement</a>(<span class="keywordtype">int</span> nbUtilisateurs, <span class="keywordtype">int</span> * sequenceSignal, <span class="keywordtype">int</span> longueurMessages);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="recepteur_8h.html#abd13da2e35c58026368c8651eca58c4d">afficherMessagesRecus</a>(<span class="keywordtype">int</span> nbUtilisateurs, <span class="keywordtype">int</span> ** messagesRecus, <span class="keywordtype">int</span> longueurMessages);</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="arecepteur_8h_html_abf7ca8e5c8568c3a515d894fb2878568"><div class="ttname"><a href="recepteur_8h.html#abf7ca8e5c8568c3a515d894fb2878568">afficherMessageRecu</a></div><div class="ttdeci">void afficherMessageRecu(int **message, int longueurMessage, int nbUtilisateurs)</div><div class="ttdoc">Affiche le message reçu.</div><div class="ttdef"><b>Definition:</b> recepteur.c:50</div></div>
-<div class="ttc" id="arecepteur_8h_html_ad2639b3d8da0305402a2a746b64c4093"><div class="ttname"><a href="recepteur_8h.html#ad2639b3d8da0305402a2a746b64c4093">desetalementMessage</a></div><div class="ttdeci">int ** desetalementMessage(int **matriceHadamard, int *sequence, int nbUtilisateurs, int dimMat, int longueurMessage)</div><div class="ttdoc">Procède au désetalement du message.</div><div class="ttdef"><b>Definition:</b> recepteur.c:22</div></div>
+<div class="ttc" id="arecepteur_8h_html_afdb263820bc073884707d1a40e97ed5e"><div class="ttname"><a href="recepteur_8h.html#afdb263820bc073884707d1a40e97ed5e">desetalement</a></div><div class="ttdeci">int ** desetalement(int nbUtilisateurs, int *sequenceSignal, int longueurMessages)</div><div class="ttdoc">Appelle la fonction nécessaire pour créer la matrice de Hadamard et ainsi procèder au désetalement du...</div><div class="ttdef"><b>Definition:</b> recepteur.c:20</div></div>
+<div class="ttc" id="arecepteur_8h_html_abd13da2e35c58026368c8651eca58c4d"><div class="ttname"><a href="recepteur_8h.html#abd13da2e35c58026368c8651eca58c4d">afficherMessagesRecus</a></div><div class="ttdeci">void afficherMessagesRecus(int nbUtilisateurs, int **messagesRecus, int longueurMessages)</div><div class="ttdoc">Affiche le message reçu.</div><div class="ttdef"><b>Definition:</b> recepteur.c:53</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par &#160;<a href="http://www.doxygen.org/index.html">

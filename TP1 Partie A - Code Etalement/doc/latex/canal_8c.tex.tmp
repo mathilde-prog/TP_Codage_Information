@@ -46,5 +46,5 @@ Représente un canal idéal.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-La séquence envoyée dans le canal 
+La séquence envoyée dans le canal car c\textquotesingle{}est un canal I\+D\+E\+AL 
 \end{DoxyReturn}

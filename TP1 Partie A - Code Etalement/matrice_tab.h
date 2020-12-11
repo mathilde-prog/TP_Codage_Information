@@ -12,5 +12,4 @@
 int ** alloue_matrice (int lignes, int colonnes);
 void free_matrice(int ** matrice, int lignes);
 void afficherTableau (int * tab, int taille);
-void afficherMatrice(int ** matrice, int ligne, int colonne );
-void afficherMatriceResultat(int ** matrice, int ligne, int colonne );
+void afficherMatrice(int ** matrice, int lignes, int colonnes);

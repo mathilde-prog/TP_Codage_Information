@@ -17,11 +17,8 @@ void \mbox{\hyperlink{matrice__tab_8c_aefad84180b0052d1ed229d1d017e5217}{free\+\
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la matrice. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{matrice__tab_8c_a65e14af897a9a1fe25cb96f816126e6f}{afficher\+Tableau}} (int $\ast$tab, int taille)
 \begin{DoxyCompactList}\small\item\em Affiche le tableau passé en paramètre. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{matrice__tab_8c_a7fa65215f70b4bd1714863c7e5168b92}{afficher\+Matrice}} (int $\ast$$\ast$matrice, int ligne, int colonne)
-\begin{DoxyCompactList}\small\item\em Affiche la matrice passée en paramètre. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{matrice__tab_8c_ae8fea419eadf7c4a80954937bcca4c6f}\label{matrice__tab_8c_ae8fea419eadf7c4a80954937bcca4c6f}} 
-void {\bfseries afficher\+Matrice\+Resultat} (int $\ast$$\ast$matrice, int ligne, int colonne)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{matrice__tab_8c_afbb6a2b6a588cee26ee41180ff14e1a4}{afficher\+Matrice}} (int $\ast$$\ast$matrice, int lignes, int colonnes)
+\begin{DoxyCompactList}\small\item\em Affiche la matrice passée en paramètre. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -39,11 +36,11 @@ Mathilde Mottay, Anaïs Mottier
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{matrice__tab_8c_a7fa65215f70b4bd1714863c7e5168b92}\label{matrice__tab_8c_a7fa65215f70b4bd1714863c7e5168b92}} 
+\mbox{\Hypertarget{matrice__tab_8c_afbb6a2b6a588cee26ee41180ff14e1a4}\label{matrice__tab_8c_afbb6a2b6a588cee26ee41180ff14e1a4}} 
 \index{matrice\_tab.c@{matrice\_tab.c}!afficherMatrice@{afficherMatrice}}
 \index{afficherMatrice@{afficherMatrice}!matrice\_tab.c@{matrice\_tab.c}}
 \doxysubsubsection{\texorpdfstring{afficherMatrice()}{afficherMatrice()}}
-{\footnotesize\ttfamily void afficher\+Matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void afficher\+Matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{lignes,  }\item[{int}]{colonnes }\end{DoxyParamCaption})}
 
 
 
@@ -53,9 +50,9 @@ Affiche la matrice passée en paramètre.
 \begin{DoxyParams}{Paramètres}
 {\em int} & $\ast$$\ast$ matrice Matrice \\
 \hline
-{\em int} & ligne Nombre de lignes \\
+{\em int} & lignes Nombre de lignes \\
 \hline
-{\em int} & colonne Nombre de colonnes \\
+{\em int} & colonnes Nombre de colonnes \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

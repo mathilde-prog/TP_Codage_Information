@@ -2,7 +2,7 @@
 
 /**
  * \file matrice_tab.c
- * \brief Fonctions relatives aux matrices et tableaux 
+ * \brief Fonctions relatives aux matrices et tableaux
  * \author Mathilde Mottay, Anaïs Mottier
  * \version 1.0
  * \date 2020
@@ -17,10 +17,18 @@
 */
 int ** alloue_matrice (int lignes, int colonnes){
   int l;
-  int ** matrice = malloc(lignes*sizeof(int*));
+  int ** matrice = NULL;
+
+  if((matrice = malloc(lignes*sizeof(int*))) == NULL){
+    fprintf(stderr,"alloue_matrice: débordement mémoire lors de la création d'une matrice\n");
+    exit(1);
+  }
 
   for(l = 0; l < lignes; l++){
-    matrice[l] = malloc(colonnes*sizeof(int));
+    if((matrice[l] = malloc(colonnes*sizeof(int))) == NULL){
+      fprintf(stderr,"alloue_matrice: débordement mémoire lors de la création d'une matrice\n");
+      exit(1);
+    }
   }
 
   return matrice;
@@ -60,38 +68,20 @@ void afficherTableau (int * tab, int taille){
 }
 
 /**
- * \fn void afficherMatrice(int ** matrice, int ligne, int colonne )
+ * \fn void afficherMatrice(int ** matrice, int lignes, int colonnes)
  * \brief Affiche la matrice passée en paramètre
  * \param int ** matrice Matrice
- * \param int ligne Nombre de lignes
- * \param int colonne Nombre de colonnes
+ * \param int lignes Nombre de lignes
+ * \param int colonnes Nombre de colonnes
  * \return Rien
 */
-void afficherMatrice(int ** matrice, int ligne, int colonne ){
+void afficherMatrice(int ** matrice, int lignes, int colonnes){
   int l, c;
 
-  for(l = 0; l < ligne; l++){
-    for(c = 0; c < colonne; c++){
+  for(l = 0; l < lignes; l++){
+    for(c = 0; c < colonnes; c++){
       printf("%2d ",matrice[l][c]);
     }
     printf("\n");
-  }
-}
-
-void afficherMatriceResultat(int ** matrice, int ligne, int colonne ){
-  int l, c;
-
-  for(l = 0; l < ligne; l++){
-    if(matrice[l][0] != 0){
-      printf("Séquence %2d : ",l+1);
-    }
-    for(c = 0; c < colonne; c++){
-      if(matrice[l][c] != 0){
-        printf("%2d ",matrice[l][c]);
-      }
-    }
-    if(matrice[l][c-1] != 0){
-      printf("\n");
-    }
   }
 }

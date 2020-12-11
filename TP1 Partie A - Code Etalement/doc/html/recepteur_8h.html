@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TP1 Code d&#39;Etalement (1/3): Référence du fichier recepteur.h</title>
+<title>TP1 Partie A - Code d&#39;Etalement: Référence du fichier recepteur.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">TP1 Code d&#39;Etalement (1/3)
+   <div id="projectname">TP1 Partie A - Code d&#39;Etalement
    </div>
    <div id="projectbrief">Mise en oeuvre d&#39;un codeur de Hadamard. Programmation en C.</div>
   </td>
@@ -90,12 +90,12 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ad2639b3d8da0305402a2a746b64c4093"><td class="memItemLeft" align="right" valign="top">int **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="recepteur_8h.html#ad2639b3d8da0305402a2a746b64c4093">desetalementMessage</a> (int **matriceHadamard, int *sequence, int nbUtilisateurs, int dimMat, int longueurMessage)</td></tr>
-<tr class="memdesc:ad2639b3d8da0305402a2a746b64c4093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procède au désetalement du message.  <a href="recepteur_8h.html#ad2639b3d8da0305402a2a746b64c4093">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad2639b3d8da0305402a2a746b64c4093"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf7ca8e5c8568c3a515d894fb2878568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="recepteur_8h.html#abf7ca8e5c8568c3a515d894fb2878568">afficherMessageRecu</a> (int **message, int longueurMessage, int nbUtilisateurs)</td></tr>
-<tr class="memdesc:abf7ca8e5c8568c3a515d894fb2878568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le message reçu.  <a href="recepteur_8h.html#abf7ca8e5c8568c3a515d894fb2878568">Plus de détails...</a><br /></td></tr>
-<tr class="separator:abf7ca8e5c8568c3a515d894fb2878568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb263820bc073884707d1a40e97ed5e"><td class="memItemLeft" align="right" valign="top">int **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="recepteur_8h.html#afdb263820bc073884707d1a40e97ed5e">desetalement</a> (int nbUtilisateurs, int *sequenceSignal, int longueurMessages)</td></tr>
+<tr class="memdesc:afdb263820bc073884707d1a40e97ed5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelle la fonction nécessaire pour créer la matrice de Hadamard et ainsi procèder au désetalement du message.  <a href="recepteur_8h.html#afdb263820bc073884707d1a40e97ed5e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afdb263820bc073884707d1a40e97ed5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd13da2e35c58026368c8651eca58c4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="recepteur_8h.html#abd13da2e35c58026368c8651eca58c4d">afficherMessagesRecus</a> (int nbUtilisateurs, int **messagesRecus, int longueurMessages)</td></tr>
+<tr class="memdesc:abd13da2e35c58026368c8651eca58c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le message reçu.  <a href="recepteur_8h.html#abd13da2e35c58026368c8651eca58c4d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abd13da2e35c58026368c8651eca58c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Tous les prototypes de fonctions relatives au récepteur. </p>
@@ -103,29 +103,29 @@ Fonctions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="abf7ca8e5c8568c3a515d894fb2878568"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf7ca8e5c8568c3a515d894fb2878568">&#9670;&nbsp;</a></span>afficherMessageRecu()</h2>
+<a id="abd13da2e35c58026368c8651eca58c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd13da2e35c58026368c8651eca58c4d">&#9670;&nbsp;</a></span>afficherMessagesRecus()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void afficherMessageRecu </td>
+          <td class="memname">void afficherMessagesRecus </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbUtilisateurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int **&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
+          <td class="paramname"><em>messagesRecus</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>longueurMessage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nbUtilisateurs</em>&#160;</td>
+          <td class="paramname"><em>longueurMessages</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -138,9 +138,9 @@ Fonctions</h2></td></tr>
 <p>Affiche le message reçu. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int</td><td>** message Message reçu </td></tr>
-    <tr><td class="paramname">int</td><td>longueurMessage Longueur du message </td></tr>
     <tr><td class="paramname">int</td><td>nbUtilisateurs Nombre d'utilisateurs </td></tr>
+    <tr><td class="paramname">int</td><td>messagesRecus Matrice contenant les messages reçus (après désétalement) </td></tr>
+    <tr><td class="paramname">int</td><td>longueurMessages Longueur des messages </td></tr>
   </table>
   </dd>
 </dl>
@@ -148,41 +148,29 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad2639b3d8da0305402a2a746b64c4093"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2639b3d8da0305402a2a746b64c4093">&#9670;&nbsp;</a></span>desetalementMessage()</h2>
+<a id="afdb263820bc073884707d1a40e97ed5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb263820bc073884707d1a40e97ed5e">&#9670;&nbsp;</a></span>desetalement()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int** desetalementMessage </td>
+          <td class="memname">int** desetalement </td>
           <td>(</td>
-          <td class="paramtype">int **&#160;</td>
-          <td class="paramname"><em>matriceHadamard</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>sequence</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>nbUtilisateurs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dimMatH</em>, </td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>sequenceSignal</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>longueurMessage</em>&#160;</td>
+          <td class="paramname"><em>longueurMessages</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -192,18 +180,16 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Procède au désetalement du message. </p>
+<p>Appelle la fonction nécessaire pour créer la matrice de Hadamard et ainsi procèder au désetalement du message. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int</td><td>** matriceHadamard Matrice d'Hadamard </td></tr>
-    <tr><td class="paramname">int</td><td>* sequence Séquence à désétaler </td></tr>
     <tr><td class="paramname">int</td><td>nbUtilisateurs Nombre d'utilisateurs </td></tr>
-    <tr><td class="paramname">int</td><td>dimMatH Dimension Matrice d'Hadamard </td></tr>
-    <tr><td class="paramname">int</td><td>longueurMessage Longueur du message </td></tr>
+    <tr><td class="paramname">int</td><td>* sequenceSignal Séquence du signal à désétaler </td></tr>
+    <tr><td class="paramname">int</td><td>longueurMessage Longueur des messages </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Retourne le message après désétalement </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Retourne une matrice contenant les messages reçus (après désétalement) </dd></dl>
 
 </div>
 </div>

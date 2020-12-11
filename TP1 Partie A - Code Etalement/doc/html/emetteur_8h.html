@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TP1 Code d&#39;Etalement (1/3): Référence du fichier emetteur.h</title>
+<title>TP1 Partie A - Code d&#39;Etalement: Référence du fichier emetteur.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">TP1 Code d&#39;Etalement (1/3)
+   <div id="projectname">TP1 Partie A - Code d&#39;Etalement
    </div>
    <div id="projectbrief">Mise en oeuvre d&#39;un codeur de Hadamard. Programmation en C.</div>
   </td>
@@ -73,6 +73,7 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="matrice__tab_8h_source.html">matrice_tab.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de emetteur.h:</div>
 <div class="dyncontent">
@@ -93,18 +94,27 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a880ffda84f3be0a7d687259e925cf4fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#a880ffda84f3be0a7d687259e925cf4fe">nbUtilisateursValide</a> (int nb)</td></tr>
 <tr class="memdesc:a880ffda84f3be0a7d687259e925cf4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne 1 si le nombre d'utilisateurs passé en paramètre est valide.  <a href="emetteur_8h.html#a880ffda84f3be0a7d687259e925cf4fe">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a880ffda84f3be0a7d687259e925cf4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4989fb4a57ae952b3915b45b6d972647"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#a4989fb4a57ae952b3915b45b6d972647">choixNbUtilisateurs</a> (int *nbUtilisateurs)</td></tr>
-<tr class="memdesc:a4989fb4a57ae952b3915b45b6d972647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choix du nombre d'utilisateurs.  <a href="emetteur_8h.html#a4989fb4a57ae952b3915b45b6d972647">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a4989fb4a57ae952b3915b45b6d972647"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65d5a2be88a772ec76fcf1b9b06324ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#a65d5a2be88a772ec76fcf1b9b06324ec">creeMatriceHadamard</a> (int **matriceHadamard, int dimension)</td></tr>
-<tr class="memdesc:a65d5a2be88a772ec76fcf1b9b06324ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une matrice d'Hadamard dont la dimension est passée en paramètre.  <a href="emetteur_8h.html#a65d5a2be88a772ec76fcf1b9b06324ec">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a65d5a2be88a772ec76fcf1b9b06324ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dcaeb8647653f3579e1d0a7a55fc749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#a6dcaeb8647653f3579e1d0a7a55fc749">sequencesUtilisateurs</a> (int **matriceHadamard, int dimension, int *emission, int taille, int ligne, int **total)</td></tr>
-<tr class="memdesc:a6dcaeb8647653f3579e1d0a7a55fc749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stocke la séquence émise par l'utilisateur dans la matrice total.  <a href="emetteur_8h.html#a6dcaeb8647653f3579e1d0a7a55fc749">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a6dcaeb8647653f3579e1d0a7a55fc749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c3483f215b27ea810617a184c393b2"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#ae2c3483f215b27ea810617a184c393b2">sequenceEtalee</a> (int **total, int ligne, int colonne)</td></tr>
-<tr class="memdesc:ae2c3483f215b27ea810617a184c393b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps.  <a href="emetteur_8h.html#ae2c3483f215b27ea810617a184c393b2">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae2c3483f215b27ea810617a184c393b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee0fafc4f04b56aec0aa1dae5cd09f6a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#aee0fafc4f04b56aec0aa1dae5cd09f6a">choixNbUtilisateurs</a> ()</td></tr>
+<tr class="memdesc:aee0fafc4f04b56aec0aa1dae5cd09f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choix du nombre d'utilisateurs.  <a href="emetteur_8h.html#aee0fafc4f04b56aec0aa1dae5cd09f6a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aee0fafc4f04b56aec0aa1dae5cd09f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad35149c3d8faf018b131543af775e0a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#ad35149c3d8faf018b131543af775e0a1">saisieLongueurMessages</a> ()</td></tr>
+<tr class="memdesc:ad35149c3d8faf018b131543af775e0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saisie de la longueur des messages.  <a href="emetteur_8h.html#ad35149c3d8faf018b131543af775e0a1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad35149c3d8faf018b131543af775e0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac834f5a37b29e53e170b9fc3b111ca36"><td class="memItemLeft" align="right" valign="top">int **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#ac834f5a37b29e53e170b9fc3b111ca36">creeMatriceHadamard</a> (int dimension)</td></tr>
+<tr class="memdesc:ac834f5a37b29e53e170b9fc3b111ca36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une matrice de Hadamard dont la dimension est passée en paramètre. Un seule paramètre car c'est une matrice carrée.  <a href="emetteur_8h.html#ac834f5a37b29e53e170b9fc3b111ca36">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac834f5a37b29e53e170b9fc3b111ca36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1705f96fad188f82a00556c8c34e77bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#a1705f96fad188f82a00556c8c34e77bb">afficherSequencesCodees</a> (int **sequencesCodees, int lignes, int colonnes)</td></tr>
+<tr class="memdesc:a1705f96fad188f82a00556c8c34e77bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les séquences codées (appelée dans la fonction codageSequences si verbose)  <a href="emetteur_8h.html#a1705f96fad188f82a00556c8c34e77bb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1705f96fad188f82a00556c8c34e77bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b968fe8c1fc6da69e89476e9cabe25e"><td class="memItemLeft" align="right" valign="top">int **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#a2b968fe8c1fc6da69e89476e9cabe25e">codageSequences</a> (int nbUtilisateurs, int **matriceHadamard, int dimensionHadamard, int **messages, int longueurMessages, int verbose)</td></tr>
+<tr class="memdesc:a2b968fe8c1fc6da69e89476e9cabe25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code les séquences/messages émis par le(s) utilisateur(s) à l'aide de la matrice de Hadamard.  <a href="emetteur_8h.html#a2b968fe8c1fc6da69e89476e9cabe25e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2b968fe8c1fc6da69e89476e9cabe25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13f2d40471decac93cb6871cfd31e918"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#a13f2d40471decac93cb6871cfd31e918">etalement</a> (int nbUtilisateurs, int dimensionHadamard, int longueurMessages, int **sequencesCodees, int verbose)</td></tr>
+<tr class="memdesc:a13f2d40471decac93cb6871cfd31e918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue l'opération d'étalement. Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps.  <a href="emetteur_8h.html#a13f2d40471decac93cb6871cfd31e918">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a13f2d40471decac93cb6871cfd31e918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab318469def806b07683b3814cedf62db"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emetteur_8h.html#ab318469def806b07683b3814cedf62db">emetteur</a> (int nbUtilisateurs, int longueurMessages, int verbose)</td></tr>
+<tr class="memdesc:ab318469def806b07683b3814cedf62db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Correspond à l'émetteur : il permet à l'utilisateur de saisir les messages et appelle les fonctions nécessaires pour créer la matrice de Hadamard, coder les séquences et effectuer l'opération d'étalement.  <a href="emetteur_8h.html#ab318469def806b07683b3814cedf62db">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab318469def806b07683b3814cedf62db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Tous les prototypes de fonctions relatives à l'émetteur. </p>
@@ -112,50 +122,29 @@ Fonctions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a4989fb4a57ae952b3915b45b6d972647"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4989fb4a57ae952b3915b45b6d972647">&#9670;&nbsp;</a></span>choixNbUtilisateurs()</h2>
+<a id="a1705f96fad188f82a00556c8c34e77bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1705f96fad188f82a00556c8c34e77bb">&#9670;&nbsp;</a></span>afficherSequencesCodees()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void choixNbUtilisateurs </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>nbUtilisateurs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Choix du nombre d'utilisateurs. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">int</td><td>* nbUtilisateurs Nombre d'utilisateurs </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Rien </dd></dl>
-
-</div>
-</div>
-<a id="a65d5a2be88a772ec76fcf1b9b06324ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65d5a2be88a772ec76fcf1b9b06324ec">&#9670;&nbsp;</a></span>creeMatriceHadamard()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void creeMatriceHadamard </td>
+          <td class="memname">void afficherSequencesCodees </td>
           <td>(</td>
           <td class="paramtype">int **&#160;</td>
-          <td class="paramname"><em>matrice</em>, </td>
+          <td class="paramname"><em>sequencesCodees</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dimMatH</em>&#160;</td>
+          <td class="paramname"><em>lignes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>colonnes</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -165,15 +154,233 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Crée une matrice d'Hadamard dont la dimension est passée en paramètre. </p>
+<p>Affiche les séquences codées (appelée dans la fonction codageSequences si verbose) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int</td><td>** matrice Matrice d'Hadamard </td></tr>
-    <tr><td class="paramname">int</td><td>dimMatH Dimension matrice d'Hadamard </td></tr>
+    <tr><td class="paramname">int</td><td>** sequencesCodees Matrice contenant les séquences codées </td></tr>
+    <tr><td class="paramname">int</td><td>lignes Nombre de lignes de la matrice sequencesCodees </td></tr>
+    <tr><td class="paramname">int</td><td>colonnes Nombre de colonnes de la matrice sequencesCodees </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>Rien </dd></dl>
+
+</div>
+</div>
+<a id="aee0fafc4f04b56aec0aa1dae5cd09f6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee0fafc4f04b56aec0aa1dae5cd09f6a">&#9670;&nbsp;</a></span>choixNbUtilisateurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int choixNbUtilisateurs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Choix du nombre d'utilisateurs. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre d'utilisateurs choisi </dd></dl>
+
+</div>
+</div>
+<a id="a2b968fe8c1fc6da69e89476e9cabe25e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b968fe8c1fc6da69e89476e9cabe25e">&#9670;&nbsp;</a></span>codageSequences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int** codageSequences </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbUtilisateurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>matriceHadamard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dimensionHadamard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>messages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>longueurMessages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Code les séquences/messages émis par le(s) utilisateur(s) à l'aide de la matrice de Hadamard. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>nbUtilisateurs Nombre d'utilisateurs </td></tr>
+    <tr><td class="paramname">int</td><td>** matriceHadamard Matrice de Hadamard </td></tr>
+    <tr><td class="paramname">int</td><td>dimensionHadamard Dimension de la matrice de Hadamard </td></tr>
+    <tr><td class="paramname">int</td><td>** messages Matrice contenant les messages émis par les utilisateurs </td></tr>
+    <tr><td class="paramname">int</td><td>longueurMessages Longueur des messages </td></tr>
+    <tr><td class="paramname">int</td><td>verbose Indicateur si affichage détaillé ou non </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Matrice contenant les séquences codées </dd></dl>
+
+</div>
+</div>
+<a id="ac834f5a37b29e53e170b9fc3b111ca36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac834f5a37b29e53e170b9fc3b111ca36">&#9670;&nbsp;</a></span>creeMatriceHadamard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int** creeMatriceHadamard </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dimension</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée une matrice de Hadamard dont la dimension est passée en paramètre. Un seule paramètre car c'est une matrice carrée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>dimension Dimension de la matrice de Hadamard </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Matrice de Hadamard </dd></dl>
+
+</div>
+</div>
+<a id="ab318469def806b07683b3814cedf62db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab318469def806b07683b3814cedf62db">&#9670;&nbsp;</a></span>emetteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* emetteur </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbUtilisateurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>longueurMessages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Correspond à l'émetteur : il permet à l'utilisateur de saisir les messages et appelle les fonctions nécessaires pour créer la matrice de Hadamard, coder les séquences et effectuer l'opération d'étalement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>nbUtilisateurs Nombre d'utilisateurs </td></tr>
+    <tr><td class="paramname">int</td><td>longueurMessages Longueur des messages </td></tr>
+    <tr><td class="paramname">int</td><td>verbose Indicateur si affichage détaillé ou non </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Tableau qui contient la séquence émise après le codage des messages et l'opération d'étalement </dd></dl>
+
+</div>
+</div>
+<a id="a13f2d40471decac93cb6871cfd31e918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13f2d40471decac93cb6871cfd31e918">&#9670;&nbsp;</a></span>etalement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* etalement </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbUtilisateurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dimensionHadamard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>longueurMessages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>sequencesCodees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Effectue l'opération d'étalement. Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>nbUtilisateurs Nombre d'utilisateurs </td></tr>
+    <tr><td class="paramname">int</td><td>dimensionHadamard Dimension de la matrice de Hadamard </td></tr>
+    <tr><td class="paramname">int</td><td>longueurMessages Longueur des messages </td></tr>
+    <tr><td class="paramname">int</td><td>** sequencesCodees Matrice contenant les séquences codées </td></tr>
+    <tr><td class="paramname">int</td><td>verbose Indicateur si affichage détaillé ou non </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Tableau qui correspond à la séquence du signal quand les utilisateurs émettent en même temps </dd></dl>
 
 </div>
 </div>
@@ -200,118 +407,27 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>1 si le nombre d'utilisateurs est valide. 0 sinon. </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le nombre d'utilisateurs est valide (valeurs possibles : 1/2/4/8/16 utilisateurs). 0 sinon. </dd></dl>
 
 </div>
 </div>
-<a id="ae2c3483f215b27ea810617a184c393b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2c3483f215b27ea810617a184c393b2">&#9670;&nbsp;</a></span>sequenceEtalee()</h2>
+<a id="ad35149c3d8faf018b131543af775e0a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad35149c3d8faf018b131543af775e0a1">&#9670;&nbsp;</a></span>saisieLongueurMessages()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int* sequenceEtalee </td>
+          <td class="memname">int saisieLongueurMessages </td>
           <td>(</td>
-          <td class="paramtype">int **&#160;</td>
-          <td class="paramname"><em>total</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ligne</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>colonne</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retourne dans un tableau la valeur de la séquence du signal quand les utilisateurs émettent en même temps. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">int</td><td>** total </td></tr>
-    <tr><td class="paramname">int</td><td>ligne </td></tr>
-    <tr><td class="paramname">int</td><td>colonne </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Tableau qui correspond à la séquence du signal quand les utilisateurs émettent en même temps </dd></dl>
-
-</div>
-</div>
-<a id="a6dcaeb8647653f3579e1d0a7a55fc749"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dcaeb8647653f3579e1d0a7a55fc749">&#9670;&nbsp;</a></span>sequencesUtilisateurs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sequencesUtilisateurs </td>
-          <td>(</td>
-          <td class="paramtype">int **&#160;</td>
-          <td class="paramname"><em>matriceHadamard</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dimMatH</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>longueurMessage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ligne</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int **&#160;</td>
-          <td class="paramname"><em>total</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Stocke la séquence émise par l'utilisateur dans la matrice total. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">int</td><td>** matriceHadamard Matrice d'Hadamard </td></tr>
-    <tr><td class="paramname">int</td><td>dimMatH Dimension matrice d'Hadamard </td></tr>
-    <tr><td class="paramname">int</td><td>* message Tableau qui correspond au message émis par l'utilisateur </td></tr>
-    <tr><td class="paramname">int</td><td>longueurMessage Taille du tableau contenant le message </td></tr>
-    <tr><td class="paramname">int</td><td>ligne Ligne utilisée dans la matrice d'Hadamard pour coder la séquence </td></tr>
-    <tr><td class="paramname">int</td><td>** total Matrice qui stocke le résultat </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Rien </dd></dl>
+<p>Saisie de la longueur des messages. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Longueur des messages </dd></dl>
 
 </div>
 </div>

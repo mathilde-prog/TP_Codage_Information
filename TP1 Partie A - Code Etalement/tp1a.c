@@ -6,14 +6,26 @@
 #include "matrice_tab.h"
 #include "canal.h"
 
+/*
+   L'option verbose permet d'afficher tous les messages de trace si elle est positionnée :
+    - Affichage de la matrice de Hadamard
+    - Affichage des séquences codées
+    - Affichage de la séquence après étalement
+    Exécutez ./tp1a --verbose OU ./tp1a -v
+*/
+
 static struct option longopts[] = {
   {"verbose", no_argument, NULL, (int)'v'},
   {0, 0, 0, 0}
 };
 
+/*
+  * Programme principal pour tester le code à étalement
+  */
+
 int main(int argc, char * argv[], char * env[]){
+    int verbose = 0, nbUtilisateurs, longueurMessages;
     char c;
-    int verbose = 0, longueurMessages, nbUtilisateurs, i, nbit, numSequence = 0;
 
     // Option verbose : affiche tous les messages de trace si elle est positionnée.
     while ((c = getopt_long(argc,argv,"v",longopts,NULL)) != -1){
@@ -22,63 +34,31 @@ int main(int argc, char * argv[], char * env[]){
       }
     }
 
-    choixNbUtilisateurs(&nbUtilisateurs);
+    // Choix du nombre d'utilisateurs
+    nbUtilisateurs = choixNbUtilisateurs();
 
-    int dimMatH = (nbUtilisateurs > 8) ? 16 : 8;
-    int ** matriceHadamard = alloue_matrice(dimMatH,dimMatH);
+    // Saisie de la longueur des messages
+    longueurMessages = saisieLongueurMessages();
 
-    creeMatriceHadamard(matriceHadamard,dimMatH);
+    /*
+      * EMETTEUR
+    */
+    int * sequenceSignal = emetteur(nbUtilisateurs,longueurMessages,verbose);
 
-    if(verbose){
-      printf("\n Matrice Hadamard : \n");
-      afficherMatrice(matriceHadamard,dimMatH,dimMatH);
-    }
+    /*
+      * CANAL IDEAL
+    */
+    canalIdeal(sequenceSignal);
 
-    do {
-      printf("\nSaisir la longueur des messages : ");
-      scanf("%d",&longueurMessages);
-      if(longueurMessages <= 0){
-        printf("La longueur des messages ne peut être négative ou nulle. Veuillez ressaisir.\n");
-      }
-    } while(longueurMessages <= 0);
+    /*
+      * RECEPTEUR
+    */
+    int ** messagesRecus = desetalement(nbUtilisateurs,sequenceSignal,longueurMessages);
 
-    int ** resultat = alloue_matrice(dimMatH,dimMatH*longueurMessages);
-    int * sequence = malloc(sizeof(int)* (dimMatH*longueurMessages));
-    int * messages = malloc(sizeof(int)*longueurMessages);
+    afficherMessagesRecus(nbUtilisateurs,messagesRecus,longueurMessages);
 
-    for(i = 0; i < nbUtilisateurs; i++){
-      printf("\n[Saisie séquence émise par l'utilisateur %d]\n",i+1);
-
-      for(nbit = 0; nbit < longueurMessages; nbit++){
-        printf("Saisir le bit %d : ",nbit);
-        scanf("%d",&messages[nbit]);
-      }
-
-      sequencesUtilisateurs(matriceHadamard,dimMatH,messages,longueurMessages,numSequence++,resultat);
-    }
-
-    if(verbose){
-      printf("\n");
-      afficherMatriceResultat(resultat,dimMatH,dimMatH*longueurMessages);
-      printf("\n");
-    }
-
-    sequence = sequenceEtalee(resultat,dimMatH,dimMatH*longueurMessages);
-    if(verbose){
-      printf("Séquence après étalement : ");
-      afficherTableau(sequence,dimMatH*longueurMessages);
-    }
-
-    printf("\nEnvoi de la séquence étalée dans le canal idéal\n");
-    canalIdeal(sequence);
-
-    int ** res = desetalementMessage(matriceHadamard,sequence,nbUtilisateurs,dimMatH,longueurMessages);
-    afficherMessageRecu(res,longueurMessages,nbUtilisateurs);
-
-    free_matrice(matriceHadamard,dimMatH);
-    free_matrice(resultat,dimMatH);
-    free(sequence);
-    free(messages);
+    free(sequenceSignal);
+    free_matrice(messagesRecus,nbUtilisateurs);
 
     return EXIT_SUCCESS;
 }

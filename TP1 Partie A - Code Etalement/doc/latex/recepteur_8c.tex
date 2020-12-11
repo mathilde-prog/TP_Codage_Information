@@ -7,14 +7,15 @@ Fonctions relatives au récepteur.
 
 {\ttfamily \#include \char`\"{}recepteur.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}matrice\+\_\+tab.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}emetteur.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de recepteur.\+c\+:
 % FIG 0
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-int $\ast$$\ast$ \mbox{\hyperlink{recepteur_8c_ab436e9da413280ebd9b3cd5cbb3294de}{desetalement\+Message}} (int $\ast$$\ast$matrice\+Hadamard, int $\ast$sequence, int nb\+Utilisateurs, int dim\+MatH, int longueur\+Message)
-\begin{DoxyCompactList}\small\item\em Procède au désetalement du message. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{recepteur_8c_abf7ca8e5c8568c3a515d894fb2878568}{afficher\+Message\+Recu}} (int $\ast$$\ast$message, int longueur\+Message, int nb\+Utilisateurs)
+int $\ast$$\ast$ \mbox{\hyperlink{recepteur_8c_a584fc6d303777d2bb994ba0923c203ed}{desetalement}} (int nb\+Utilisateurs, int $\ast$sequence\+Signal, int longueur\+Messages)
+\begin{DoxyCompactList}\small\item\em Appelle la fonction nécessaire pour créer la matrice de Hadamard et ainsi procèder au désetalement du message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{recepteur_8c_abd13da2e35c58026368c8651eca58c4d}{afficher\+Messages\+Recus}} (int nb\+Utilisateurs, int $\ast$$\ast$messages\+Recus, int longueur\+Messages)
 \begin{DoxyCompactList}\small\item\em Affiche le message reçu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -33,11 +34,11 @@ Mathilde Mottay, Anaïs Mottier
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{recepteur_8c_abf7ca8e5c8568c3a515d894fb2878568}\label{recepteur_8c_abf7ca8e5c8568c3a515d894fb2878568}} 
-\index{recepteur.c@{recepteur.c}!afficherMessageRecu@{afficherMessageRecu}}
-\index{afficherMessageRecu@{afficherMessageRecu}!recepteur.c@{recepteur.c}}
-\doxysubsubsection{\texorpdfstring{afficherMessageRecu()}{afficherMessageRecu()}}
-{\footnotesize\ttfamily void afficher\+Message\+Recu (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{message,  }\item[{int}]{longueur\+Message,  }\item[{int}]{nb\+Utilisateurs }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{recepteur_8c_abd13da2e35c58026368c8651eca58c4d}\label{recepteur_8c_abd13da2e35c58026368c8651eca58c4d}} 
+\index{recepteur.c@{recepteur.c}!afficherMessagesRecus@{afficherMessagesRecus}}
+\index{afficherMessagesRecus@{afficherMessagesRecus}!recepteur.c@{recepteur.c}}
+\doxysubsubsection{\texorpdfstring{afficherMessagesRecus()}{afficherMessagesRecus()}}
+{\footnotesize\ttfamily void afficher\+Messages\+Recus (\begin{DoxyParamCaption}\item[{int}]{nb\+Utilisateurs,  }\item[{int $\ast$$\ast$}]{messages\+Recus,  }\item[{int}]{longueur\+Messages }\end{DoxyParamCaption})}
 
 
 
@@ -45,39 +46,35 @@ Affiche le message reçu.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em int} & $\ast$$\ast$ message Message reçu \\
-\hline
-{\em int} & longueur\+Message Longueur du message \\
-\hline
 {\em int} & nb\+Utilisateurs Nombre d\textquotesingle{}utilisateurs \\
+\hline
+{\em int} & messages\+Recus Matrice contenant les messages reçus (après désétalement) \\
+\hline
+{\em int} & longueur\+Messages Longueur des messages \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 Rien 
 \end{DoxyReturn}
-\mbox{\Hypertarget{recepteur_8c_ab436e9da413280ebd9b3cd5cbb3294de}\label{recepteur_8c_ab436e9da413280ebd9b3cd5cbb3294de}} 
-\index{recepteur.c@{recepteur.c}!desetalementMessage@{desetalementMessage}}
-\index{desetalementMessage@{desetalementMessage}!recepteur.c@{recepteur.c}}
-\doxysubsubsection{\texorpdfstring{desetalementMessage()}{desetalementMessage()}}
-{\footnotesize\ttfamily int $\ast$$\ast$ desetalement\+Message (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice\+Hadamard,  }\item[{int $\ast$}]{sequence,  }\item[{int}]{nb\+Utilisateurs,  }\item[{int}]{dim\+MatH,  }\item[{int}]{longueur\+Message }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{recepteur_8c_a584fc6d303777d2bb994ba0923c203ed}\label{recepteur_8c_a584fc6d303777d2bb994ba0923c203ed}} 
+\index{recepteur.c@{recepteur.c}!desetalement@{desetalement}}
+\index{desetalement@{desetalement}!recepteur.c@{recepteur.c}}
+\doxysubsubsection{\texorpdfstring{desetalement()}{desetalement()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ desetalement (\begin{DoxyParamCaption}\item[{int}]{nb\+Utilisateurs,  }\item[{int $\ast$}]{sequence\+Signal,  }\item[{int}]{longueur\+Messages }\end{DoxyParamCaption})}
 
 
 
-Procède au désetalement du message. 
+Appelle la fonction nécessaire pour créer la matrice de Hadamard et ainsi procèder au désetalement du message. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em int} & $\ast$$\ast$ matrice\+Hadamard Matrice d\textquotesingle{}Hadamard \\
-\hline
-{\em int} & $\ast$ sequence Séquence à désétaler \\
-\hline
 {\em int} & nb\+Utilisateurs Nombre d\textquotesingle{}utilisateurs \\
 \hline
-{\em int} & dim\+MatH Dimension Matrice d\textquotesingle{}Hadamard \\
+{\em int} & $\ast$ sequence\+Signal Séquence du signal à désétaler \\
 \hline
-{\em int} & longueur\+Message Longueur du message \\
+{\em int} & longueur\+Message Longueur des messages \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Retourne le message après désétalement 
+Retourne une matrice contenant les messages reçus (après désétalement) 
 \end{DoxyReturn}

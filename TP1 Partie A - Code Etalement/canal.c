@@ -12,8 +12,9 @@
  * \fn int * canalIdeal(int * sequence)
  * \brief Représente un canal idéal
  * \param int * sequence Séquence qui traverse le canal
- * \return La séquence envoyée dans le canal
+ * \return La séquence envoyée dans le canal car c'est un canal IDEAL
 */
 int * canalIdeal(int * sequence){
+  printf("\nEnvoi de la séquence dans le canal idéal\n");
   return sequence;
 }
