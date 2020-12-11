@@ -6,7 +6,6 @@ void calculer_codage(float ** matArithmetique, int * data, int nb_caracteres, in
   int i, a;
   float bornInf, bornSup, intervalle;
 
-
   for(i=0; i<longueurData; i++){ //Parcours du message à coder
     for(a=0; a<nb_caracteres; a++){ //parcours de la matrice où sont stockés les données
       if(matArithmetique[a][0] == (float)data[i]){
@@ -138,7 +137,7 @@ void free_matrice_float(float ** matrice, int lignes){
 }
 
 
-int encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n){
+void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n){
   int i;
 
   switch(encodeur){
@@ -259,6 +258,8 @@ int main(){
   int * p = malloc(sizeof(int)*longueurData);
   int * n = malloc(sizeof(int)*longueurData);
 
+  printf("\n******** ENCODEURS HDBn & Arithmétique ********\n \n");
+
   /* Récupération de la méthode d'encodage */
   do{
     printf(" Méthodes de codage proposées :\n");
@@ -326,6 +327,7 @@ int main(){
     afficherTab(n, longueurData);
   }
 
-
+  free(p);
+  free(n);
   free(data);
 }
