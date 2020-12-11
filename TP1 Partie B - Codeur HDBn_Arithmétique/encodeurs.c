@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-void calculer_codage(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f){
+/* Calcul du codage Arithmétique avec les intervalles */
+void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f){
   int i, a;
   float bornInf, bornSup, intervalle;
 
@@ -25,7 +26,7 @@ void calculer_codage(float ** matArithmetique, int * data, int nb_caracteres, in
   *f = bornInf;
 }
 
-//Tri bulle d'une matrice d'entier en fonction de la colonne 0
+/* Tri bulle d'une matrice d'entier en fonction de la colonne 0 */
 void triBulle_Mat_c0(int ** Mat, int lignes){
   int i, j, echange1, echange2;
 
@@ -45,7 +46,7 @@ void triBulle_Mat_c0(int ** Mat, int lignes){
   }
 }
 
-//Affichage d'un tableau d'entier
+/* Affichage d'un tableau d'entier */
 void afficherTab(int * tab, int nb){
   for(int i=0; i<nb; i++){
     printf("%d ", tab[i]);
@@ -53,21 +54,21 @@ void afficherTab(int * tab, int nb){
   printf("\n");
 }
 
-//Affichage d'une matrice de float
+/* Affichage d'une matrice de float */
 void afficherMatrice_float(float ** matrice, int ligne, int colonne){
   int l;
 
-  printf(" |----------------------------|\n");
-  printf(" | Carac | Fréq | Intervalles |\n");
-  printf(" |----------------------------|\n");
+  printf(" |--------------------------------|\n");
+  printf(" | Carac | Fréq |   Intervalles   |\n");
+  printf(" |--------------------------------|\n");
   for(l = 0; l < ligne; l++){
-    printf(" |   %c   |  %d   | %.2f ; %.2f |\n", (char)matrice[l][0], (int)matrice[l][1], matrice[l][2], matrice[l][3]);
+    printf(" |   %c   |  %d   | %.4f ; %.4f |\n", (char)matrice[l][0], (int)matrice[l][1], matrice[l][2], matrice[l][3]);
   }
-  printf(" |----------------------------|\n");
+  printf(" |--------------------------------|\n");
   printf("\n");
 }
 
-//Copie un tableau d'entiers dans un matrice d'entiers à la colonne 0 et ajoute la fréquence de la valeur dans la 2ème colonne
+/* Copie un tableau d'entiers dans un matrice d'entiers à la colonne 0 et ajoute la fréquence de la valeur dans la 2ème colonne */
 int tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   int compteur, i, j, v;
   *nb_caracteres = 0;
@@ -92,7 +93,7 @@ int tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   }
 }
 
-//Allocation d'une matrice d'entiers
+/* Allocation d'une matrice d'entiers */
 int ** alloue_matrice (int lignes, int colonnes){
   int l;
   int ** matrice = malloc(lignes*sizeof(int*));
@@ -104,7 +105,7 @@ int ** alloue_matrice (int lignes, int colonnes){
   return matrice;
 }
 
-//Allocation d'une matrice d'entiers
+/* Allocation d'une matrice d'entiers */
 float ** alloue_matrice_float (int lignes, int colonnes){
   int l;
   float ** matrice = malloc(lignes*sizeof(float*));
@@ -190,6 +191,7 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
       printf(" Message codé : ");
       afficherTab(code, longueurData);
 
+      /* Récupération des valeurs positives et négatives du signal : implémentation de p et n */
       for(i=0; i<longueurData; i++){
         switch (code[i]) {
           case 0 :  p[i] = 0;
@@ -205,6 +207,7 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
                     break;
         }
       }
+
       free(code);
       break;
     }
@@ -214,7 +217,7 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
       int ** matOrdreAlpha_Freq = alloue_matrice(longueurData, 2);
       int nb_caracteres, ll, le, c;
       float intervalleRef = 1/(float)longueurData;
-      float interMin = 0.0, interMax;
+      float interMin = 0.00, interMax;
 
       /* Copie de data dans une matrice 'matOrdreAlpha_Freq' de taille 2 */
       tab2Mat(data, matOrdreAlpha_Freq, longueurData, &nb_caracteres);
@@ -241,7 +244,7 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
       }
       afficherMatrice_float(matArithmetique, nb_caracteres, 4);
 
-      calculer_codage(matArithmetique, data, nb_caracteres, longueurData, f);
+      calculer_codage_arithmetique(matArithmetique, data, nb_caracteres, longueurData, f);
 
       free_matrice(matOrdreAlpha_Freq,longueurData);
       free_matrice_float(matArithmetique,nb_caracteres);
