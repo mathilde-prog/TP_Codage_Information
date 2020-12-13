@@ -112,8 +112,7 @@ int main(){
           afficherTab(data, longueurData);
         }
         else{ //Arithmétique
-          //goto decoderArithmetique;
-          printf("\n Message décodé : ");
+          goto decoderArithmetique;
         }
       }
 
@@ -180,15 +179,17 @@ int main(){
         /* ************************* DECODAGE Arithmétique ******************************** */
         case 1 : {
           printf("\n\n ******** DECODEUR Arithmétique ******** \n");
+          
+          printf("\n Veuillez saisir la valeur à décoder (f) : ");
+          scanf("%f",&f);
+          printf("\n");
+
+          decoderArithmetique:
 
           int nb_caracteres, caracSpecial=0;
           char caracteres[longueurData];
           int frequences[longueurData];
           double intervalleRef, bornInf=0;
-
-          printf("\n Veuillez saisir la valeur à décoder (f) : ");
-          scanf("%f",&f);
-          printf("\n");
 
           /* Récupération des caractères dans l'ordre alphabétique */
           printf("\n Veuillez saisir les caractères du message dans l'ordre alphabétique, en majuscules. S'il y a des caractères spéciaux les écrire à la fin : ");
