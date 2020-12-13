@@ -112,6 +112,7 @@ int main(){
           afficherTab(data, longueurData);
         }
         else{ //Arithmétique
+          //goto decoderArithmetique;
           printf("\n Message décodé : ");
         }
       }
@@ -151,14 +152,14 @@ int main(){
               printf(" ERREUR : la valeur saisit doit être comprise entre 2 et 4.\n");
           }while((valHDBn<2) || (valHDBn>4));
 
-          printf("\n Veuillez saisir la séquence séquence positive (P) : \n");
+          printf("\n Veuillez saisir la séquence positive (P) : \n");
           for(i=0; i<longueurData; i++){
-          printf(" Bit n°%d : ", i);
+            printf(" Bit n°%d : ", i);
             scanf("%d",&p[i]);
           }
           printf("\n");
 
-          printf("\n Veuillez saisir la séquence séquence négative (N) : \n");
+          printf("\n Veuillez saisir la séquence négative (N) : \n");
           for(i=0; i<longueurData; i++){
             printf(" Bit n°%d : ", i);
             scanf("%d",&n[i]);
@@ -180,6 +181,70 @@ int main(){
         case 1 : {
           printf("\n\n ******** DECODEUR Arithmétique ******** \n");
 
+          int nb_caracteres, caracSpecial=0;
+          char caracteres[longueurData];
+          int frequences[longueurData];
+          float intervalleRef, bornInf=0;
+
+          printf("\n Veuillez saisir la valeur à décoder (f) : ");
+          scanf("%f",&f);
+          printf("\n");
+
+          /* Récupération des caractères dans l'ordre alphabétique */
+          printf("\n Veuillez saisir les caractères du message dans l'ordre alphabétique, en majuscules. S'il y a des caractères spéciaux les écrire à la fin : ");
+          scanf(" %[^\n]", caracteres);
+          nb_caracteres = longueurData;
+
+          /* Récupération de la fréquence de chacun des caractères */
+          for(i=0; i<nb_caracteres; i++){
+            printf(" Le caractère '%c' a une fréquence de : ", caracteres[i]);
+            scanf("%d", &frequences[i]);
+            if(frequences[i] > 1)
+              nb_caracteres -= frequences[i]-1;
+          }
+          printf("\n");
+
+          /* Initialisation à NULL du reste du tableau inutilisé pour le rendre plus propre*/
+          if(nb_caracteres<longueurData){
+            for(i=nb_caracteres; i<longueurData; i++){
+              caracteres[i] = NULL;
+              frequences[i] = NULL;
+            }
+          }
+
+          /* Initialisation de la matrice qui va permettre le décodage avec les valeurs entrées par l'utilisateur (caractère & fréquence) + calculs des intervalles */
+          float ** matDecodeur = alloue_matrice_float(nb_caracteres, 4);
+          printf("longueurData = %.10f\n", (float)longueurData);
+          intervalleRef = (float)1/(float)longueurData; //intervalles de référence pour une lettre
+          printf("intervalleRef = %.10f\n", intervalleRef);
+          for(i=0; i<nb_caracteres; i++){
+            matDecodeur[i][0] = (float)caracteres[i];
+            matDecodeur[i][1] = (float)frequences[i];
+            if((caracteres[i] < 'A') || (caracteres[i] > 'Z'))
+              caracSpecial = 1;
+          }
+          //La présence d'au moins un caractère spécial (autre que les lettres de l'alpahabet en majuscules) entraine le tri du tableau par ordre croissant
+          if(caracSpecial == 1)
+            triBulle_Mat_c0((int **)matDecodeur, nb_caracteres);
+
+          for(i=0; i<nb_caracteres; i++){
+            matDecodeur[i][2] = bornInf;
+            matDecodeur[i][3] = bornInf+(matDecodeur[i][1]*intervalleRef);
+            bornInf = matDecodeur[i][3];
+          }
+
+          decodeurArithmetique(longueurData, nb_caracteres, f, matDecodeur, data);
+
+          printf("\n Message décodé : ");
+          for(i=0; i<longueurData; i++){
+            printf("%c", (char)data[i]);
+          }
+          printf("\n");
+
+          free(p);
+          free(n);
+          free(data);
+          free_matrice_float(matDecodeur,nb_caracteres);
 
           break;
         }

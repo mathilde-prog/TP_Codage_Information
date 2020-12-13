@@ -221,7 +221,7 @@ int ** alloue_matrice (int lignes, int colonnes){
   return matrice;
 }
 
-/* Allocation d'une matrice d'entiers */
+/* Allocation d'une matrice de float */
 float ** alloue_matrice_float (int lignes, int colonnes){
   int l;
   float ** matrice = malloc(lignes*sizeof(float*));
