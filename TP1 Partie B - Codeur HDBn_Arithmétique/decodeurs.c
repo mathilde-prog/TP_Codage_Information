@@ -42,7 +42,7 @@ void decodeurHDBn(int valHDBn, int longueurData, int * p, int * n, int * data){
 
 void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float ** matDecodeur, int * data){
   int i, m, trouver;
-  float dividende, diviseur;
+  double dividende, diviseur;
 
   printf("\n Matrice nécessaire au décodage : \n");
   afficherMatrice_float(matDecodeur, nb_caracteres, 4);
@@ -58,13 +58,13 @@ void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float **
       if((matDecodeur[i][2] <= f) && (f < matDecodeur[i][3])){ //valeur codé (f) comprise dans entre les bornes de valeurs matDecodeur[i][2] et matDecodeur[i][3]
         printf("    f est compris entre : %.4f et %.4f\n", matDecodeur[i][2], matDecodeur[i][3]);
         data[m] = (int)matDecodeur[i][0];
-        dividende = f-matDecodeur[i][2];
-        printf("bornInf = %.10f \n", matDecodeur[i][2]);
-        printf("dividende = %.10f \n", dividende);
+        dividende = (double)f-(double)matDecodeur[i][2];
+        printf("bornInf = %.10f \n", (double)matDecodeur[i][2]);
+        printf("dividende = %.10lf \n", dividende);
         float x = (float)1/(float)10;
         printf("1/10 = %f\n", x);
-        diviseur = matDecodeur[i][1]/longueurData;
-        printf("diviseur = %.10f\n", diviseur);
+        diviseur = (double)matDecodeur[i][1]/longueurData;
+        printf("diviseur = %.10lf\n", diviseur);
         printf("    => donc le caractère n°%d du message est : %c\n", m, (char)data[m]);
         f = dividende/diviseur;
         trouver=1;

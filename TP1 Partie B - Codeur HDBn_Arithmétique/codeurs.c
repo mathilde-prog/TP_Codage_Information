@@ -233,6 +233,18 @@ float ** alloue_matrice_float (int lignes, int colonnes){
   return matrice;
 }
 
+/* Allocation d'une matrice double */
+double ** alloue_matrice_double (int lignes, int colonnes){
+  int l;
+  double ** matrice = malloc(lignes*sizeof(double*));
+
+  for(l = 0; l < lignes; l++){
+    matrice[l] = malloc(colonnes*sizeof(double));
+  }
+
+  return matrice;
+}
+
 void free_matrice(int ** matrice, int lignes){
   int i;
 
@@ -248,6 +260,16 @@ void free_matrice_float(float ** matrice, int lignes){
 
   for(i = 0; i < lignes; i++){
     free((float*) matrice[i]);
+  }
+
+  free(matrice);
+}
+
+void free_matrice_double(double ** matrice, int lignes){
+  int i;
+
+  for(i = 0; i < lignes; i++){
+    free((double*) matrice[i]);
   }
 
   free(matrice);

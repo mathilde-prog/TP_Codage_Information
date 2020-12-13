@@ -184,7 +184,7 @@ int main(){
           int nb_caracteres, caracSpecial=0;
           char caracteres[longueurData];
           int frequences[longueurData];
-          float intervalleRef, bornInf=0;
+          double intervalleRef, bornInf=0;
 
           printf("\n Veuillez saisir la valeur à décoder (f) : ");
           scanf("%f",&f);
@@ -215,7 +215,7 @@ int main(){
           /* Initialisation de la matrice qui va permettre le décodage avec les valeurs entrées par l'utilisateur (caractère & fréquence) + calculs des intervalles */
           float ** matDecodeur = alloue_matrice_float(nb_caracteres, 4);
           printf("longueurData = %.10f\n", (float)longueurData);
-          intervalleRef = (float)1/(float)longueurData; //intervalles de référence pour une lettre
+          intervalleRef = 1/(double)longueurData; //intervalles de référence pour une lettre
           printf("intervalleRef = %.10f\n", intervalleRef);
           for(i=0; i<nb_caracteres; i++){
             matDecodeur[i][0] = (float)caracteres[i];
