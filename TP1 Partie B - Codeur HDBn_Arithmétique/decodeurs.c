@@ -67,7 +67,7 @@ void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float **
       if((matDecodeur[i][2] <= f) && (f < matDecodeur[i][3])){ //valeur codé (f) comprise dans entre les bornes de valeurs matDecodeur[i][2] et matDecodeur[i][3]
         printf("    f est compris entre : %.4f et %.4f\n", matDecodeur[i][2], matDecodeur[i][3]);
         data[m] = (int)matDecodeur[i][0];
-        printf("    => donc le caractère n°%d du message est : %c\n", m, (char)data[m]);
+        printf("    => donc le caractère n°%d du message est : '%c'\n", m, (char)data[m]);
         dividende = (double)f-(double)matDecodeur[i][2];
         diviseur = (double)matDecodeur[i][1]/longueurData;
         f = dividende/diviseur;
