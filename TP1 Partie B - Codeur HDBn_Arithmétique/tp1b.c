@@ -3,10 +3,12 @@
 #include "decodeurs.h"
 
 int main(){
-  int valHDBn, longueurData, i, code, encodeur, decodeur, rep;
+  int valHDBn, longueurData, i, code, encodeur, decodeur, rep, rep2;
   float f;
 
-  printf("\n******** ENCODEURS / DECODEURS : HDBn & Arithmétique ********\n \n");
+  menu:
+  printf("\n******** MENU ENCODEURS / DECODEURS : HDBn & Arithmétique ********\n \n");
+
   do{
     printf("    0 : Encoder \n    1 : Décoder\n");
     printf(" Que souhaitez-vous faire ? ");
@@ -26,8 +28,10 @@ int main(){
   int * p = malloc(sizeof(int)*longueurData);
   int * n = malloc(sizeof(int)*longueurData);
 
-  /* ************************* ENCODAGE ******************************** */
+
   switch(code){
+
+    /* ************************* ENCODAGE ******************************** */
     case 0 : {
       printf("\n\n******** ENCODEURS HDBn & Arithmétique ********\n");
 
@@ -42,6 +46,7 @@ int main(){
       }while((encodeur!=0) && (encodeur!=1));
 
       switch(encodeur){
+
         /* ************************* ENCODAGE HDBn ******************************** */
         case 0 : {
           printf("\n\n ******** ENCODEUR HDBn ********\n");
@@ -68,12 +73,14 @@ int main(){
         /* ************************* ENCODAGE Arithmétique ******************************** */
         case 1 : {
           printf("\n\n ******** ENCODEUR Arithmétique ********\n");
+
           char chaine[longueurData];
 
           printf("\n Veuillez saisir la séquence à coder (entrée pour finir): ");
           scanf(" %[^\n]", chaine);
           printf("\n");
 
+          /* Récupération de la valeur décimale de chaque caractère de la chaine */
           for(i=0; i<longueurData; i++){
               data[i] = chaine[i];
           }
@@ -84,7 +91,10 @@ int main(){
                   break;
       }
 
+      //Lancement de l'encodage
       encodeurHDBn_Arithmetique(encodeur, longueurData, data, &f, p, n);
+
+      /* Affichage du message codé */
       if(encodeur == 1) //Code Arithmétique
         printf("\n Message codé : %.10f\n", f);
       else{ //code HDBn
@@ -94,38 +104,30 @@ int main(){
         afficherTab(n, longueurData);
       }
 
-      /* Demande si l'utilisateur veut décoder le message qu'il vient de coder */
-      do{
-        printf("\n Souhaitez-vous maintenant décoder ce message ?\n");
-        printf("    0 : Oui \n    1 : Non\n");
-        printf(" Votre choix : ");
-        scanf("%d", &rep);
-        if((rep!=0) && (rep!=1))
-          printf("ERREUR : La valeur saisit doit être 0 ou 1.\n");
-      }while((rep!=0) && (rep!=1));
+      /* Encodage HDBn : décodage du message codé si l'utilisateur le souhaite */
+      if(encodeur !=1){
+        /* Demande si l'utilisateur veut décoder le message qu'il vient de coder */
+        do{
+          printf("\n Souhaitez-vous maintenant décoder ce message ?\n");
+          printf("    0 : Non \n    1 : Oui\n");
+          printf(" Votre choix : ");
+          scanf("%d", &rep);
+          if((rep!=0) && (rep!=1))
+            printf("ERREUR : La valeur saisit doit être 0 ou 1.\n");
+        }while((rep!=0) && (rep!=1));
 
-
-      if(rep == 0){
-        if(encodeur != 1){ //HDBn
+        if(rep){
           decodeurHDBn(encodeur, longueurData, p, n, data);
           printf("\n Message décodé : ");
           afficherTab(data, longueurData);
         }
-        else{ //Arithmétique
-          goto decoderArithmetique;
-        }
       }
-
-      free(p);
-      free(n);
-      free(data);
 
       break;
     }
 
     /* ************************* DECODAGE ******************************** */
     case 1 : {
-
         printf("\n\n ******** DECODEURS HDBn & Arithmétique ********\n");
 
       do{
@@ -138,10 +140,11 @@ int main(){
       }while((decodeur!=0) && (decodeur!=1));
 
       switch(decodeur){
+
         /* ************************* DECODAGE HDBn ******************************** */
         case 0 : {
-
           printf("\n\n ******** DECODEUR HDBn ******** \n");
+
           do{
             printf("\n HDBn disponibles :\n");
             printf("    2 : HDB2 \n    3 : HDB3\n    4 : HDB4\n");
@@ -165,13 +168,12 @@ int main(){
           }
           printf("\n");
 
+          //Lancement du décodeur HDBn
           decodeurHDBn(valHDBn, longueurData, p, n, data);
+
+          //Affichage du message décodé
           printf("\n Message décodé : ");
           afficherTab(data, longueurData);
-
-          free(p);
-          free(n);
-          free(data);
 
           break;
         }
@@ -179,24 +181,22 @@ int main(){
         /* ************************* DECODAGE Arithmétique ******************************** */
         case 1 : {
           printf("\n\n ******** DECODEUR Arithmétique ******** \n");
-          
-          printf("\n Veuillez saisir la valeur à décoder (f) : ");
-          scanf("%f",&f);
-          printf("\n");
-
-          decoderArithmetique:
 
           int nb_caracteres, caracSpecial=0;
           char caracteres[longueurData];
           int frequences[longueurData];
           double intervalleRef, bornInf=0;
 
+          printf("\n Veuillez saisir la valeur à décoder (f) : ");
+          scanf("%f",&f);
+          printf("\n");
+
           /* Récupération des caractères dans l'ordre alphabétique */
-          printf("\n Veuillez saisir les caractères du message dans l'ordre alphabétique, en majuscules. S'il y a des caractères spéciaux les écrire à la fin : ");
+          printf("\n Veuillez saisir les caractères du message dans l'ordre alphabétique, en majuscules, à la suite (sans espaces). S'il y a des caractères spéciaux les écrire à la fin : ");
           scanf(" %[^\n]", caracteres);
           nb_caracteres = longueurData;
 
-          /* Récupération de la fréquence de chacun des caractères */
+          /* Récupération de la fréquence de chacun des caractères + calcul du nombre de caractères différents */
           for(i=0; i<nb_caracteres; i++){
             printf(" Le caractère '%c' a une fréquence de : ", caracteres[i]);
             scanf("%d", &frequences[i]);
@@ -205,7 +205,7 @@ int main(){
           }
           printf("\n");
 
-          /* Initialisation à NULL du reste du tableau inutilisé pour le rendre plus propre*/
+          /* Initialisation à NULL du reste du tableau inutilisé pour le rendre plus propre */
           if(nb_caracteres<longueurData){
             for(i=nb_caracteres; i<longueurData; i++){
               caracteres[i] = NULL;
@@ -213,11 +213,11 @@ int main(){
             }
           }
 
-          /* Initialisation de la matrice qui va permettre le décodage avec les valeurs entrées par l'utilisateur (caractère & fréquence) + calculs des intervalles */
+          /* Initialisation de la matrice qui va permettre le décodage */
           float ** matDecodeur = alloue_matrice_float(nb_caracteres, 4);
-          printf("longueurData = %.10f\n", (float)longueurData);
           intervalleRef = 1/(double)longueurData; //intervalles de référence pour une lettre
           printf("intervalleRef = %.10f\n", intervalleRef);
+          //Récupération des valeurs entrées par l'utilisateur (caractère & fréquence) */
           for(i=0; i<nb_caracteres; i++){
             matDecodeur[i][0] = (float)caracteres[i];
             matDecodeur[i][1] = (float)frequences[i];
@@ -226,25 +226,24 @@ int main(){
           }
           //La présence d'au moins un caractère spécial (autre que les lettres de l'alpahabet en majuscules) entraine le tri du tableau par ordre croissant
           if(caracSpecial == 1)
-            triBulle_Mat_c0((int **)matDecodeur, nb_caracteres);
-
+            triBulle_Mat((int **)matDecodeur, nb_caracteres, 0);
+          //Calcul et initialisation des bornes inférieurs et supérieures pour chaque caractère
           for(i=0; i<nb_caracteres; i++){
             matDecodeur[i][2] = bornInf;
             matDecodeur[i][3] = bornInf+(matDecodeur[i][1]*intervalleRef);
             bornInf = matDecodeur[i][3];
           }
 
+          //Lancement du décodeur Arithmétique
           decodeurArithmetique(longueurData, nb_caracteres, f, matDecodeur, data);
 
+          /* Affichage du message décodé */
           printf("\n Message décodé : ");
           for(i=0; i<longueurData; i++){
             printf("%c", (char)data[i]);
           }
           printf("\n");
 
-          free(p);
-          free(n);
-          free(data);
           free_matrice_float(matDecodeur,nb_caracteres);
 
           break;
@@ -257,4 +256,14 @@ int main(){
     default : printf("ERREUR : code = %d\n", code);
               break;
   }
+  printf("\n\n Voulez-vous continuer à utiliser ce programme ?\n");
+  printf("   0 : Non\n   1 : Oui\n");
+  printf("Votre choix : ");
+  scanf("%d", &rep2);
+  if(rep2)
+    goto menu;
+
+  free(p);
+  free(n);
+  free(data);
 }

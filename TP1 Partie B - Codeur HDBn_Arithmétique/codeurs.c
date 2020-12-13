@@ -1,6 +1,6 @@
 #include "codeurs.h"
 
-/* Calcul du codage Arithmétique avec les intervalles */
+/* Calcul du codage Arithmétique avec les intervalles et récupération de la valeur définitive de f */
 void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f){
   int i, a;
   float bornInf, bornSup, intervalle;
@@ -24,20 +24,20 @@ void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_c
   *f = bornInf;
 }
 
-/* Tri bulle d'une matrice d'entier en fonction de la colonne 0 */
-void triBulle_Mat_c0(int ** Mat, int lignes){
+/* Tri bulle d'une matrice d'entier en fonction de la colonne passé en paramètre */
+void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison){
   int i, j, echange1, echange2;
 
   for(i = 0; i < lignes; i++){
     for(j = lignes-1; j > i; j--){
-      if(Mat[j][0] < Mat[j-1][0]){
-        echange1 = Mat[j-1][0];
+      if(Mat[j][colonneComparaison] < Mat[j-1][colonneComparaison]){
+        echange1 = Mat[j-1][colonneComparaison];
         echange2 = Mat[j-1][1];
 
-        Mat[j-1][0] = Mat[j][0];
+        Mat[j-1][colonneComparaison] = Mat[j][colonneComparaison];
         Mat[j-1][1] = Mat[j][1];
 
-        Mat[j][0] = echange1;
+        Mat[j][colonneComparaison] = echange1;
         Mat[j][1] = echange2;
       }
     }
@@ -59,21 +59,24 @@ void afficherMatrice_float(float ** matrice, int ligne, int colonne){
   printf("\n");
 }
 
-/* Copie un tableau d'entiers dans un matrice d'entiers à la colonne 0 et ajoute la fréquence de la valeur dans la 2ème colonne */
+/* Copie des valeurs d'un tableau d'entiers dans un matrice d'entiers à la colonne 0 & ajout de la fréquence de chaque valeur dans la 2ème colonne */
 void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
-  int compteur, i, j, v;
+  int compteur, i, j, m;
   *nb_caracteres = 0;
-  //Parcours la séquence
+  /* Parcours du message à copier */
   for(i=0; i<lignes; i++){
     /* Test si la valeur de tab[i] est déjà inscrite dans la matrice */
-    for(v=0; (v<i) && (mat[v][0]!=tab[i]); v++);
-    if(mat[v][0] == tab[i]){
+    for(m=0; (m<i) && (mat[m][0]!=tab[i]); m++);
+    //Valeur déjà enregistrée dans le tableau
+    if(mat[m][0] == tab[i]){
       mat[i][0] = tab[i];
-      mat[i][1] = 0;
+      mat[i][1] = 0; //fréquence mise à 0 pour pouvoir par la suite supprimer cette ligne de la matrice
     }
-    else{ //Nouveau caractere
+    //Nouveau caractere
+    else{
       compteur = 1;
       (*nb_caracteres)++;
+      //Comptage du nombre de fois où le caractère apparait dans le message
       for(j=i+1; j<lignes; j++){
         if(tab[j] == tab[i]){
           compteur++;
@@ -85,11 +88,12 @@ void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   }
 }
 
+/* Fonction d'encodage HDBn et arithmétique */
 void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n){
   int i;
 
   switch(encodeur){
-    /* HDBn */
+    /* ******* ENCODEUR HDBn ******* */
     case 2 : case 3 : case 4 : {
       int nb = encodeur; //Nombre de '0' a ne pas dépasser
       int * code = malloc(sizeof(int)*longueurData);
@@ -98,43 +102,54 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
       int dernierUn = -1;
       int nbZero = 0;
 
+      /* Parcours de la séquence à coder */
       for(i=0; i<longueurData; i++){
+        //Le bit courant est 0
         if(data[i] == 0){
           nbZero++;
-          if(nbZero == nb+1){ //trop de zero à la suite
-            if(dernierViol > 0){ //dernierViol positif
+          //Trop de '0' à la suite, nbZero > nb
+          if(nbZero == nb+1){
+            //dernierViol positif
+            if(dernierViol > 0){
               code[i] = -1; //V-
-              if(dernierUn > 0){ //dernierUn positif
+              //dernierUn positif
+              if(dernierUn > 0){
                 code[i-nb] = -1; //B-
-                dernierUn = code[i-nb];
+                dernierUn = code[i-nb]; //Actualisation du dernierUn
               }
             }
-            else{ //dernierViol négatif
+            //dernierViol négatif
+            else{
               code[i] = 1; //V+
-              if(dernierUn < 0){ //dernierUn négatif
+              //dernierUn négatif
+              if(dernierUn < 0){
                 code[i-nb] = 1; //B+
-                dernierUn = code[i-nb];
+                dernierUn = code[i-nb]; //Actualisation du dernierUn
               }
             }
-            dernierViol = code[i];
-            nbZero=0;
+            dernierViol = code[i]; //Actualisation du dernierViol
+            nbZero = 0; //Actualisation du nbZero : remise à 0
           }
+          //nbZero < n donc valeur encodé : 0
           else{
             code[i] = 0;
           }
         }
-
-        else{ //bite == 1 : code bipolaire
-          nbZero=0;
-          if(dernierUn < 0){ ///dernierUn negatif
+        //Le bit courant est 1
+        else{
+          nbZero=0; //Actualisation du nbZero : remise à 0
+          //dernierUn négatif
+          if(dernierUn < 0){
             code[i]=1;
           }
-          else{//dernierUn positif
+          //dernierUn positif
+          else{
             code[i]=-1;
           }
-          dernierUn = code[i];
+          dernierUn = code[i]; //Actualisation du dernierUn
         }
       }
+      /* Affichage du message codé */
       printf(" Message codé : ");
       afficherTab(code, longueurData);
 
@@ -159,24 +174,24 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
       break;
     }
 
-    /* Arithmétique */
+    /* ******* ENCODEUR Arithmétique ******* */
     case 1 : {
-      int ** matOrdreAlpha_Freq = alloue_matrice(longueurData, 2);
+      int ** matOrdreAlpha_Freq = alloue_matrice(longueurData, 2); //Matrice dans laquelle se trouvera le message à coder avec la fréquence d'apparition de chaque caractère
       int nb_caracteres, ll, le, c;
-      float intervalleRef = 1/(float)longueurData;
-      float interMin = 0.00, interMax;
+      float intervalleRef = 1/(float)longueurData; //Valeur de l'intervalle de référence pour un caractère
+      float interMin = 0.00, interMax; //Bornes d'un intervalle : [interMin interMax]
 
-      /* Copie de data dans une matrice 'matOrdreAlpha_Freq' de taille 2 */
+      /* Copie du message à coder (data) dans une matrice 'matOrdreAlpha_Freq' de taille 2 + ajout des fréquences de chaque caractère */
       tab2Mat(data, matOrdreAlpha_Freq, longueurData, &nb_caracteres);
-      /* Tri par ordre croissant des valeurs ascii (ordre alphabétique) */
-      triBulle_Mat_c0(matOrdreAlpha_Freq, longueurData);
+      /* Tri par ordre croissant des caractères (ordre alphabétique) */
+      triBulle_Mat(matOrdreAlpha_Freq, longueurData, 0);
 
       //Allocation d'une matrice de taille 4
-      float ** matArithmetique = alloue_matrice_float(nb_caracteres, 4);
+      float ** matArithmetique = alloue_matrice_float(nb_caracteres, 4); //Matrice dans laquelle se trouvera les informations nécéssaires à l'encodage
 
-      /* Copie de matOrdreAlpha_Freq dans une matrice 'matArithmetique' + ajout intervalles */
+      /* Copie de matOrdreAlpha_Freq dans une matrice 'matArithmetique' & calculs + ajoute les bornes d'intervalles de chaque caractère */
       for(ll=0, le=0; ll<longueurData; ll++){ // ll : ligne lecture, le : ligne écriture
-        //Ajout qu'une seule fois des caractères apparaissant plusieurs fois dans la séquence à coder
+        //Ajoute chaque caractères une seule fois : si la fréquence est de 0, la lettre apparait plus d'une fois, sa véritable fréquence est enregistrée au moment de sa première apparition
         if(matOrdreAlpha_Freq[ll][1] != 0){
           for(c=0; c<2; c++){
             matArithmetique[le][c] = matOrdreAlpha_Freq[ll][c];
@@ -189,10 +204,13 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
           le++;
         }
       }
+      //Affichage de la matrice contenant les informations nécéssaires à l'encodage
       afficherMatrice_float(matArithmetique, nb_caracteres, 4);
 
+      //Lancement du calcul arithmétique : f
       calculer_codage_arithmetique(matArithmetique, data, nb_caracteres, longueurData, f);
 
+      /* Libération de mémoire */
       free_matrice(matOrdreAlpha_Freq,longueurData);
       free_matrice_float(matArithmetique,nb_caracteres);
     }
@@ -233,18 +251,7 @@ float ** alloue_matrice_float (int lignes, int colonnes){
   return matrice;
 }
 
-/* Allocation d'une matrice double */
-double ** alloue_matrice_double (int lignes, int colonnes){
-  int l;
-  double ** matrice = malloc(lignes*sizeof(double*));
-
-  for(l = 0; l < lignes; l++){
-    matrice[l] = malloc(colonnes*sizeof(double));
-  }
-
-  return matrice;
-}
-
+/* Libération d'une matrice de int */
 void free_matrice(int ** matrice, int lignes){
   int i;
 
@@ -255,21 +262,12 @@ void free_matrice(int ** matrice, int lignes){
   free(matrice);
 }
 
+/* Libération d'une matrice de float */
 void free_matrice_float(float ** matrice, int lignes){
   int i;
 
   for(i = 0; i < lignes; i++){
     free((float*) matrice[i]);
-  }
-
-  free(matrice);
-}
-
-void free_matrice_double(double ** matrice, int lignes){
-  int i;
-
-  for(i = 0; i < lignes; i++){
-    free((double*) matrice[i]);
   }
 
   free(matrice);

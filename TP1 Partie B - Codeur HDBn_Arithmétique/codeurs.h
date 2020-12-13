@@ -3,7 +3,7 @@
 #include <string.h>
 
 void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f);
-void triBulle_Mat_c0(int ** Mat, int lignes);
+void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison);
 void afficherMatrice_float(float ** matrice, int ligne, int colonne);
 void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres);
 void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n);
