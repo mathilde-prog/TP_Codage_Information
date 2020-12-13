@@ -1,12 +1,29 @@
 #include "codeurs.h"
 
-/* Calcul du codage Arithmétique avec les intervalles et récupération de la valeur définitive de f */
+/**
+ * \file codeurs.c
+ * \brief Fonctions relatives aux codeurs HDBn et Arithmétique
+ * \author Mathilde Mottay, Anaïs Mottier
+ * \version 1.0
+ * \date 2020
+*/
+
+/**
+ * \fn void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f)
+ * \brief Calcul du codage arithmétique avec les intervalles et récupération de la valeur définitive de f
+ * \param float ** matArithmetique
+ * \param int * data
+ * \param int nb_caracteres
+ * \param int longueurData
+ * \param float * f
+ * \return
+*/
 void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f){
   int i, a;
   float bornInf, bornSup, intervalle;
 
   for(i=0; i<longueurData; i++){ //Parcours du message à coder
-    for(a=0; a<nb_caracteres; a++){ //parcours de la matrice où sont stockés les données
+    for(a=0; a<nb_caracteres; a++){ //Parcours de la matrice où sont stockées les données
       if(matArithmetique[a][0] == (float)data[i]){
         if(i>0){
           intervalle = bornSup - bornInf;
@@ -24,7 +41,14 @@ void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_c
   *f = bornInf;
 }
 
-/* Tri bulle d'une matrice d'entier en fonction de la colonne passé en paramètre */
+/**
+ * \fn void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison)
+ * \brief Tri bulle d'une matrice d'entiers en fonction de la colonne passée en paramètre
+ * \param int ** Mat
+ * \param int lignes
+ * \param int colonneComparaison
+ * \return
+*/
 void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison){
   int i, j, echange1, echange2;
 
@@ -44,8 +68,14 @@ void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison){
   }
 }
 
-
-/* Affichage d'une matrice de float */
+/**
+ * \fn void afficherMatrice_float(float ** matrice, int ligne, int colonne)
+ * \brief Affichage d'une matrice de float
+ * \param float ** matrice
+ * \param int ligne
+ * \param int colonne
+ * \return
+*/
 void afficherMatrice_float(float ** matrice, int ligne, int colonne){
   int l;
 
@@ -59,7 +89,15 @@ void afficherMatrice_float(float ** matrice, int ligne, int colonne){
   printf("\n");
 }
 
-/* Copie des valeurs d'un tableau d'entiers dans un matrice d'entiers à la colonne 0 & ajout de la fréquence de chaque valeur dans la 2ème colonne */
+/**
+ * \fn void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres)
+ * \brief Copie des valeurs d'un tableau d'entiers dans une matrice d'entiers à la colonne 0 et ajout de la fréquence de chaque valeur dans la 2ème colonne
+ * \param int ** tab
+ * \param int ** mat
+ * \param int lignes
+ * \param int * nb_caracteres
+ * \return
+*/
 void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   int compteur, i, j, m;
   *nb_caracteres = 0;
@@ -88,7 +126,16 @@ void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   }
 }
 
-/* Fonction d'encodage HDBn et arithmétique */
+/**
+ * \fn void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n)
+ * \brief Fonction d'encodage HDBn et arithmétique
+ * \param int encodeur
+ * \param int longueurData
+ * \param int * data
+ * \param int * p
+ * \param int * n
+ * \return
+*/
 void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n){
   int i;
 
@@ -96,7 +143,12 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
     /* ******* ENCODEUR HDBn ******* */
     case 2 : case 3 : case 4 : {
       int nb = encodeur; //Nombre de '0' a ne pas dépasser
-      int * code = malloc(sizeof(int)*longueurData);
+      int * code = NULL;
+
+      if((code = malloc(sizeof(int)*longueurData)) == NULL){
+        fprintf(stderr,"encodeurHDBn_Arithmetique: débordement mémoire lors de la création du tableau code\n");
+        exit(1);
+      }
 
       int dernierViol = -1;
       int dernierUn = -1;
@@ -218,7 +270,12 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
 
 }
 
-/* Affichage d'un tableau d'entier */
+/**
+ * \fn void afficherTab(int * tab, int nb)
+ * \brief Affichage d'un tableau d'entiers
+ * \param int * tab
+ * \param int nb
+*/
 void afficherTab(int * tab, int nb){
   for(int i=0; i<nb; i++){
     printf("%d ", tab[i]);
@@ -226,32 +283,65 @@ void afficherTab(int * tab, int nb){
   printf("\n");
 }
 
-
-/* Allocation d'une matrice d'entiers */
+/**
+ * \fn int ** alloue_matrice (int lignes, int colonnes)
+ * \brief Alloue une matrice d'entiers dont les dimensions sont passées en paramètres
+ * \param int lignes Nombre de lignes
+ * \param int colonnes Nombre de colonnes
+ * \return Matrice d'entiers allouée dynamiquement
+*/
 int ** alloue_matrice (int lignes, int colonnes){
   int l;
-  int ** matrice = malloc(lignes*sizeof(int*));
+  int ** matrice = NULL;
+
+  if((matrice = malloc(lignes*sizeof(int*))) == NULL){
+    fprintf(stderr,"alloue_matrice: débordement mémoire lors de la création d'une matrice\n");
+    exit(1);
+  }
 
   for(l = 0; l < lignes; l++){
-    matrice[l] = malloc(colonnes*sizeof(int));
+    if((matrice[l] = malloc(colonnes*sizeof(int))) == NULL){
+      fprintf(stderr,"alloue_matrice: débordement mémoire lors de la création d'une matrice\n");
+      exit(1);
+    }
   }
 
   return matrice;
 }
 
-/* Allocation d'une matrice de float */
+/**
+ * \fn float ** alloue_matrice_float (int lignes, int colonnes)
+ * \brief Alloue une matrice de float dont les dimensions sont passées en paramètres
+ * \param int lignes Nombre de lignes
+ * \param int colonnes Nombre de colonnes
+ * \return Matrice de float allouée dynamiquement
+*/
 float ** alloue_matrice_float (int lignes, int colonnes){
   int l;
-  float ** matrice = malloc(lignes*sizeof(float*));
+  float ** matrice = NULL;
+
+  if((matrice = malloc(lignes*sizeof(float*))) == NULL){
+    fprintf(stderr,"alloue_matrice: débordement mémoire lors de la création d'une matrice\n");
+    exit(1);
+  }
 
   for(l = 0; l < lignes; l++){
-    matrice[l] = malloc(colonnes*sizeof(float));
+    if((matrice[l] = malloc(colonnes*sizeof(float))) == NULL){
+      fprintf(stderr,"alloue_matrice: débordement mémoire lors de la création d'une matrice\n");
+      exit(1);
+    }
   }
 
   return matrice;
 }
 
-/* Libération d'une matrice de int */
+/**
+ * \fn void free_matrice(int ** matrice, int lignes)
+ * \brief Libère la mémoire allouée pour la matrice d'entiers
+ * \param int ** matrice Matrice
+ * \param int lignes Nombre de lignes
+ * \return Rien
+*/
 void free_matrice(int ** matrice, int lignes){
   int i;
 
@@ -262,7 +352,13 @@ void free_matrice(int ** matrice, int lignes){
   free(matrice);
 }
 
-/* Libération d'une matrice de float */
+/**
+ * \fn void free_matrice_float(float ** matrice, int lignes)
+ * \brief Libère la mémoire allouée pour la matrice de float
+ * \param float ** matrice Matrice
+ * \param int lignes Nombre de lignes
+ * \return Rien
+*/
 void free_matrice_float(float ** matrice, int lignes){
   int i;
 

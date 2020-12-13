@@ -1,0 +1,267 @@
+\hypertarget{codeurs_8c}{}\doxysection{Référence du fichier codeurs.\+c}
+\label{codeurs_8c}\index{codeurs.c@{codeurs.c}}
+
+
+Fonctions relatives aux codeurs H\+D\+Bn et Arithmétique.  
+
+
+{\ttfamily \#include \char`\"{}codeurs.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de codeurs.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{codeurs_8c_a17f2fb32de0770c054512c204a2bf75f}{calculer\+\_\+codage\+\_\+arithmetique}} (float $\ast$$\ast$mat\+Arithmetique, int $\ast$data, int nb\+\_\+caracteres, int longueur\+Data, float $\ast$f)
+\begin{DoxyCompactList}\small\item\em Calcul du codage arithmétique avec les intervalles et récupération de la valeur définitive de f. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codeurs_8c_a7699c8cd70181ea936f5d0556323071a}{tri\+Bulle\+\_\+\+Mat}} (int $\ast$$\ast$Mat, int lignes, int colonne\+Comparaison)
+\begin{DoxyCompactList}\small\item\em Tri bulle d\textquotesingle{}une matrice d\textquotesingle{}entiers en fonction de la colonne passée en paramètre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codeurs_8c_a666894c17e83e4866a1cb52811bb0e10}{afficher\+Matrice\+\_\+float}} (float $\ast$$\ast$matrice, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}une matrice de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codeurs_8c_aa8056ef644a243e9e1516de427fd1fb2}{tab2\+Mat}} (int $\ast$tab, int $\ast$$\ast$mat, int lignes, int $\ast$nb\+\_\+caracteres)
+\begin{DoxyCompactList}\small\item\em Copie des valeurs d\textquotesingle{}un tableau d\textquotesingle{}entiers dans une matrice d\textquotesingle{}entiers à la colonne 0 et ajout de la fréquence de chaque valeur dans la 2ème colonne. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codeurs_8c_a86439216bed128dcd49ec3a6a27b8601}{encodeur\+H\+D\+Bn\+\_\+\+Arithmetique}} (int encodeur, int longueur\+Data, int $\ast$data, float $\ast$f, int $\ast$p, int $\ast$n)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}encodage H\+D\+Bn et arithmétique. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codeurs_8c_ab48bde8b2aea7ac4749a6adf25d6c083}{afficher\+Tab}} (int $\ast$tab, int nb)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}un tableau d\textquotesingle{}entiers. \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \mbox{\hyperlink{codeurs_8c_a5a58c1f419c3613794015192052ce57c}{alloue\+\_\+matrice}} (int lignes, int colonnes)
+\begin{DoxyCompactList}\small\item\em Alloue une matrice d\textquotesingle{}entiers dont les dimensions sont passées en paramètres. \end{DoxyCompactList}\item 
+float $\ast$$\ast$ \mbox{\hyperlink{codeurs_8c_a97873e59423d6cab37c7c4e127ea3254}{alloue\+\_\+matrice\+\_\+float}} (int lignes, int colonnes)
+\begin{DoxyCompactList}\small\item\em Alloue une matrice de float dont les dimensions sont passées en paramètres. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codeurs_8c_aefad84180b0052d1ed229d1d017e5217}{free\+\_\+matrice}} (int $\ast$$\ast$matrice, int lignes)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la matrice d\textquotesingle{}entiers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codeurs_8c_a2a6492bd1ee0769605d050d63eac2653}{free\+\_\+matrice\+\_\+float}} (float $\ast$$\ast$matrice, int lignes)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la matrice de float. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions relatives aux codeurs H\+D\+Bn et Arithmétique. 
+
+\begin{DoxyAuthor}{Auteur}
+Mathilde Mottay, Anaïs Mottier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{codeurs_8c_a666894c17e83e4866a1cb52811bb0e10}\label{codeurs_8c_a666894c17e83e4866a1cb52811bb0e10}} 
+\index{codeurs.c@{codeurs.c}!afficherMatrice\_float@{afficherMatrice\_float}}
+\index{afficherMatrice\_float@{afficherMatrice\_float}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{afficherMatrice\_float()}{afficherMatrice\_float()}}
+{\footnotesize\ttfamily void afficher\+Matrice\+\_\+float (\begin{DoxyParamCaption}\item[{float $\ast$$\ast$}]{matrice,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}une matrice de float. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em float} & $\ast$$\ast$ matrice \\
+\hline
+{\em int} & ligne \\
+\hline
+{\em int} & colonne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_ab48bde8b2aea7ac4749a6adf25d6c083}\label{codeurs_8c_ab48bde8b2aea7ac4749a6adf25d6c083}} 
+\index{codeurs.c@{codeurs.c}!afficherTab@{afficherTab}}
+\index{afficherTab@{afficherTab}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{afficherTab()}{afficherTab()}}
+{\footnotesize\ttfamily void afficher\+Tab (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{nb }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}un tableau d\textquotesingle{}entiers. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$ tab \\
+\hline
+{\em int} & nb \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{codeurs_8c_a5a58c1f419c3613794015192052ce57c}\label{codeurs_8c_a5a58c1f419c3613794015192052ce57c}} 
+\index{codeurs.c@{codeurs.c}!alloue\_matrice@{alloue\_matrice}}
+\index{alloue\_matrice@{alloue\_matrice}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{alloue\_matrice()}{alloue\_matrice()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ alloue\+\_\+matrice (\begin{DoxyParamCaption}\item[{int}]{lignes,  }\item[{int}]{colonnes }\end{DoxyParamCaption})}
+
+
+
+Alloue une matrice d\textquotesingle{}entiers dont les dimensions sont passées en paramètres. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & lignes Nombre de lignes \\
+\hline
+{\em int} & colonnes Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Matrice d\textquotesingle{}entiers allouée dynamiquement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_a97873e59423d6cab37c7c4e127ea3254}\label{codeurs_8c_a97873e59423d6cab37c7c4e127ea3254}} 
+\index{codeurs.c@{codeurs.c}!alloue\_matrice\_float@{alloue\_matrice\_float}}
+\index{alloue\_matrice\_float@{alloue\_matrice\_float}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{alloue\_matrice\_float()}{alloue\_matrice\_float()}}
+{\footnotesize\ttfamily float $\ast$$\ast$ alloue\+\_\+matrice\+\_\+float (\begin{DoxyParamCaption}\item[{int}]{lignes,  }\item[{int}]{colonnes }\end{DoxyParamCaption})}
+
+
+
+Alloue une matrice de float dont les dimensions sont passées en paramètres. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & lignes Nombre de lignes \\
+\hline
+{\em int} & colonnes Nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Matrice de float allouée dynamiquement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_a17f2fb32de0770c054512c204a2bf75f}\label{codeurs_8c_a17f2fb32de0770c054512c204a2bf75f}} 
+\index{codeurs.c@{codeurs.c}!calculer\_codage\_arithmetique@{calculer\_codage\_arithmetique}}
+\index{calculer\_codage\_arithmetique@{calculer\_codage\_arithmetique}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{calculer\_codage\_arithmetique()}{calculer\_codage\_arithmetique()}}
+{\footnotesize\ttfamily void calculer\+\_\+codage\+\_\+arithmetique (\begin{DoxyParamCaption}\item[{float $\ast$$\ast$}]{mat\+Arithmetique,  }\item[{int $\ast$}]{data,  }\item[{int}]{nb\+\_\+caracteres,  }\item[{int}]{longueur\+Data,  }\item[{float $\ast$}]{f }\end{DoxyParamCaption})}
+
+
+
+Calcul du codage arithmétique avec les intervalles et récupération de la valeur définitive de f. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em float} & $\ast$$\ast$ mat\+Arithmetique \\
+\hline
+{\em int} & $\ast$ data \\
+\hline
+{\em int} & nb\+\_\+caracteres \\
+\hline
+{\em int} & longueur\+Data \\
+\hline
+{\em float} & $\ast$ f \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_a86439216bed128dcd49ec3a6a27b8601}\label{codeurs_8c_a86439216bed128dcd49ec3a6a27b8601}} 
+\index{codeurs.c@{codeurs.c}!encodeurHDBn\_Arithmetique@{encodeurHDBn\_Arithmetique}}
+\index{encodeurHDBn\_Arithmetique@{encodeurHDBn\_Arithmetique}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{encodeurHDBn\_Arithmetique()}{encodeurHDBn\_Arithmetique()}}
+{\footnotesize\ttfamily void encodeur\+H\+D\+Bn\+\_\+\+Arithmetique (\begin{DoxyParamCaption}\item[{int}]{encodeur,  }\item[{int}]{longueur\+Data,  }\item[{int $\ast$}]{data,  }\item[{float $\ast$}]{f,  }\item[{int $\ast$}]{p,  }\item[{int $\ast$}]{n }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}encodage H\+D\+Bn et arithmétique. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & encodeur \\
+\hline
+{\em int} & longueur\+Data \\
+\hline
+{\em int} & $\ast$ data \\
+\hline
+{\em int} & $\ast$ p \\
+\hline
+{\em int} & $\ast$ n \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_aefad84180b0052d1ed229d1d017e5217}\label{codeurs_8c_aefad84180b0052d1ed229d1d017e5217}} 
+\index{codeurs.c@{codeurs.c}!free\_matrice@{free\_matrice}}
+\index{free\_matrice@{free\_matrice}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{free\_matrice()}{free\_matrice()}}
+{\footnotesize\ttfamily void free\+\_\+matrice (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{matrice,  }\item[{int}]{lignes }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour la matrice d\textquotesingle{}entiers. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ matrice Matrice \\
+\hline
+{\em int} & lignes Nombre de lignes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_a2a6492bd1ee0769605d050d63eac2653}\label{codeurs_8c_a2a6492bd1ee0769605d050d63eac2653}} 
+\index{codeurs.c@{codeurs.c}!free\_matrice\_float@{free\_matrice\_float}}
+\index{free\_matrice\_float@{free\_matrice\_float}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{free\_matrice\_float()}{free\_matrice\_float()}}
+{\footnotesize\ttfamily void free\+\_\+matrice\+\_\+float (\begin{DoxyParamCaption}\item[{float $\ast$$\ast$}]{matrice,  }\item[{int}]{lignes }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour la matrice de float. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em float} & $\ast$$\ast$ matrice Matrice \\
+\hline
+{\em int} & lignes Nombre de lignes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_aa8056ef644a243e9e1516de427fd1fb2}\label{codeurs_8c_aa8056ef644a243e9e1516de427fd1fb2}} 
+\index{codeurs.c@{codeurs.c}!tab2Mat@{tab2Mat}}
+\index{tab2Mat@{tab2Mat}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{tab2Mat()}{tab2Mat()}}
+{\footnotesize\ttfamily void tab2\+Mat (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int $\ast$$\ast$}]{mat,  }\item[{int}]{lignes,  }\item[{int $\ast$}]{nb\+\_\+caracteres }\end{DoxyParamCaption})}
+
+
+
+Copie des valeurs d\textquotesingle{}un tableau d\textquotesingle{}entiers dans une matrice d\textquotesingle{}entiers à la colonne 0 et ajout de la fréquence de chaque valeur dans la 2ème colonne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ tab \\
+\hline
+{\em int} & $\ast$$\ast$ mat \\
+\hline
+{\em int} & lignes \\
+\hline
+{\em int} & $\ast$ nb\+\_\+caracteres \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{codeurs_8c_a7699c8cd70181ea936f5d0556323071a}\label{codeurs_8c_a7699c8cd70181ea936f5d0556323071a}} 
+\index{codeurs.c@{codeurs.c}!triBulle\_Mat@{triBulle\_Mat}}
+\index{triBulle\_Mat@{triBulle\_Mat}!codeurs.c@{codeurs.c}}
+\doxysubsubsection{\texorpdfstring{triBulle\_Mat()}{triBulle\_Mat()}}
+{\footnotesize\ttfamily void tri\+Bulle\+\_\+\+Mat (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{Mat,  }\item[{int}]{lignes,  }\item[{int}]{colonne\+Comparaison }\end{DoxyParamCaption})}
+
+
+
+Tri bulle d\textquotesingle{}une matrice d\textquotesingle{}entiers en fonction de la colonne passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em int} & $\ast$$\ast$ Mat \\
+\hline
+{\em int} & lignes \\
+\hline
+{\em int} & colonne\+Comparaison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}

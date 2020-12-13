@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * \file codeurs.h
+ * \brief Tous les prototypes de fonctions relatives aux codeurs HDBn et Arithmétique
+ * \author Mathilde Mottay, Anaïs Mottier
+ * \version 1.0
+ * \date 2020
+*/
+
 void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f);
 void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison);
 void afficherMatrice_float(float ** matrice, int ligne, int colonne);

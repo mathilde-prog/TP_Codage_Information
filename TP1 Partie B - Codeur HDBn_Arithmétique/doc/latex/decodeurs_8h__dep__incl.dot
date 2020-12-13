@@ -1,0 +1,11 @@
+digraph "decodeurs.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="decodeurs.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Tous les prototypes de fonctions relatives aux décodeurs HDBn et Arithmétique."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="decodeurs.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$decodeurs_8c.html",tooltip="Fonctions relatives aux décodeurs HDBn et Arithmétique."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="tp1b.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tp1b_8c.html",tooltip="Programme principal pour tester les codeurs/décodeurs HDBn et arithmétique."];
+}

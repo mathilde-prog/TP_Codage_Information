@@ -1,11 +1,32 @@
 #include "decodeurs.h"
 
+/**
+ * \file decodeurs.c
+ * \brief Fonctions relatives aux décodeurs HDBn et Arithmétique
+ * \author Mathilde Mottay, Anaïs Mottier
+ * \version 1.0
+ * \date 2020
+*/
 
-/* Fonction de décodage HDBn */
+/**
+ * \fn void decodeurHDBn(int valHDBn, int longueurData, int * p, int * n, int * data)
+ * \brief Fonction de décodage HDBn
+ * \param int valHDBn
+ * \param int longueurData
+ * \param int * p
+ * \param int * n
+ * \param int * data
+ * \return
+*/
 void decodeurHDBn(int valHDBn, int longueurData, int * p, int * n, int * data){
   int i, nb;
   int dernierUn = 5;
-  int * signal = malloc(sizeof(int)*longueurData); //Tableau de int qui contiendra le signal à décoder
+  int * signal = NULL; //Tableau de int qui contiendra le signal à décoder
+
+  if((signal = malloc(sizeof(int)*longueurData)) == NULL){
+    fprintf(stderr,"decodeurHDBn: débordement mémoire lors de la création du tableau signal\n");
+    exit(1);
+  }
 
   /* Récupération du signal codé */
   for(i=0; i<longueurData; i++){
@@ -47,7 +68,16 @@ void decodeurHDBn(int valHDBn, int longueurData, int * p, int * n, int * data){
   }
 }
 
-/* Fonction de décodage arithmétique */
+/**
+ * \fn void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float ** matDecodeur, int * data)
+ * \brief Fonction de décodage arithmétique
+ * \param int longueurData
+ * \param int nb_caracteres
+ * \param float * f
+ * \param float ** matDecodeur
+ * \param int * data
+ * \return
+*/
 void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float ** matDecodeur, int * data){
   int i, m, trouver;
   double dividende, diviseur;
@@ -64,7 +94,7 @@ void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float **
     printf("\n Recherche du caractère %d :\n", m);
     /* Recherche des bornes qui encadrent la valeur de f */
     for(i=0; (i<nb_caracteres) && (trouver != 1); i++){
-      if((matDecodeur[i][2] <= f) && (f < matDecodeur[i][3])){ //valeur codé (f) comprise dans entre les bornes de valeurs matDecodeur[i][2] et matDecodeur[i][3]
+      if((matDecodeur[i][2] <= f) && (f < matDecodeur[i][3])){ //valeur codée (f) comprise dans entre les bornes de valeurs matDecodeur[i][2] et matDecodeur[i][3]
         printf("    f est compris entre : %.4f et %.4f\n", matDecodeur[i][2], matDecodeur[i][3]);
         data[m] = (int)matDecodeur[i][0];
         printf("    => donc le caractère n°%d du message est : '%c'\n", m, (char)data[m]);
@@ -76,5 +106,4 @@ void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float **
     }
     printf("\n\n Nouvelle valeur de f : %.10f\n", f);
   }
-
 }

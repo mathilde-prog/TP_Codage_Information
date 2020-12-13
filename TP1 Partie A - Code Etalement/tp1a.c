@@ -6,6 +6,14 @@
 #include "matrice_tab.h"
 #include "canal.h"
 
+/**
+ * \file tp1a.c
+ * \brief Programme principal pour tester le code d'étalement 
+ * \author Mathilde Mottay, Anaïs Mottier
+ * \version 1.0
+ * \date 2020
+*/
+
 /*
    L'option verbose permet d'afficher tous les messages de trace si elle est positionnée :
     - Affichage de la matrice de Hadamard

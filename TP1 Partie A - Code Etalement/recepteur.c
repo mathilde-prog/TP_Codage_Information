@@ -32,16 +32,25 @@ int ** desetalement(int nbUtilisateurs, int * sequenceSignal, int longueurMessag
   // La matrice messages est crée pour contenir les messages reçus (après désétalement).
   int ** messages = alloue_matrice(nbUtilisateurs,longueurMessages);
 
-  // Opération de désétalement
+  /*
+    Opération de désétalement
+  */
   for(i = 0, j = 0; i < nbUtilisateurs; j = 0, i++){
 
     for(somme = 0, c = 0, k = 0; c < (dimensionHadamard*longueurMessages); somme = 0, k = 0){
 
+      // do...while pour gérer les "paquets" de 8 ou 16 bits selon la dimension de la matrice de Hadamard
+      // Pour chaque "paquet", on calcule la somme des produits de chaque bit de la séquence du signal reçu avec le bit correspondant de la séquence de la matrice de Hadamard
+      // Remarque : Pour le premier utilisateur, on prend la première ligne de la matrice de Hadamard, pour le second utilisateur on prend la deuxième ligne et ainsi de suite
       do {
         somme = somme + (sequenceSignal[c]*matriceHadamard[i][k++]);
         c++;
       } while(c%dimensionHadamard != 0);
 
+      /* La somme obtenue permet de connaitre le bit du message envoyé :
+         somme > 0 --> Le bit du message reçu vaut 1.
+         somme <= 0 --> Le bit du message reçu vaut 0.
+      */
       messages[i][j++] = (somme > 0) ? 1 : 0;
     }
   }

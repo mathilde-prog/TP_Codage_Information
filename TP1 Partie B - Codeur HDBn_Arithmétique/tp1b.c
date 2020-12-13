@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include "decodeurs.h"
 
+/**
+ * \file tp1b.c
+ * \brief Programme principal pour tester les codeurs/décodeurs HDBn et arithmétique
+ * \author Mathilde Mottay, Anaïs Mottier
+ * \version 1.0
+ * \date 2020
+*/
+
 int main(){
   int valHDBn, longueurData, i, code, encodeur, decodeur, rep, rep2;
   float f;
@@ -24,10 +32,23 @@ int main(){
       printf(" ERREUR : La longueur doit être supérieure à 1.\n");
   }while(longueurData<=1);
 
-  int * data = malloc(sizeof(int)*longueurData);
-  int * p = malloc(sizeof(int)*longueurData);
-  int * n = malloc(sizeof(int)*longueurData);
+  int * data = NULL;
+  if((data = malloc(sizeof(int)*longueurData)) == NULL){
+    fprintf(stderr,"main: débordement mémoire lors de la création du tableau data\n");
+    exit(1);
+  }
 
+  int * p = NULL;
+  if((p = malloc(sizeof(int)*longueurData)) == NULL){
+    fprintf(stderr,"main: débordement mémoire lors de la création du tableau p\n");
+    exit(1);
+  }
+
+  int * n = NULL;
+  if((n = malloc(sizeof(int)*longueurData)) == NULL){
+    fprintf(stderr,"main: débordement mémoire lors de la création du tableau p\n");
+    exit(1);
+  }
 
   switch(code){
 
@@ -148,10 +169,10 @@ int main(){
           do{
             printf("\n HDBn disponibles :\n");
             printf("    2 : HDB2 \n    3 : HDB3\n    4 : HDB4\n");
-            printf(" Avec quel HDBn voulez-vous décocoder ? ");
+            printf(" Avec quel HDBn voulez-vous décoder ? ");
             scanf("%d", &valHDBn);
             if((valHDBn<2) || (valHDBn>4))
-              printf(" ERREUR : la valeur saisit doit être comprise entre 2 et 4.\n");
+              printf(" ERREUR : la valeur saisie doit être comprise entre 2 et 4.\n");
           }while((valHDBn<2) || (valHDBn>4));
 
           printf("\n Veuillez saisir la séquence positive (P) : \n");
@@ -208,8 +229,8 @@ int main(){
           /* Initialisation à NULL du reste du tableau inutilisé pour le rendre plus propre */
           if(nb_caracteres<longueurData){
             for(i=nb_caracteres; i<longueurData; i++){
-              caracteres[i] = NULL;
-              frequences[i] = NULL;
+              caracteres[i] = '\0';
+              frequences[i] = '\0';
             }
           }
 

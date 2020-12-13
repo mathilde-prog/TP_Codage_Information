@@ -186,7 +186,7 @@ int * etalement(int nbUtilisateurs, int dimensionHadamard, int longueurMessages,
     exit(1);
   }
 
-  /* On additionne les colonnes de toutes les séquences codées */
+  /* Pour chaque colonne de la matrice sequencesCodees, les bits sont additionnés et la somme est ajoutée au tableau sequenceSignal */
   for(somme = 0, c = 0; c < (dimensionHadamard * longueurMessages); c++, somme = 0){
     for(l = 0; l < nbUtilisateurs; l++){
       somme += sequencesCodees[l][c];
@@ -217,7 +217,7 @@ int * emetteur (int nbUtilisateurs, int longueurMessages, int verbose){
   *  Dimension 8 si le nombre d'utilisateurs vaut 1, 2, 4 ou 8
   *  Dimension 16 si nombre de l'utilisateurs vaut 16.
   */
-  int dimensionHadamard = (nbUtilisateurs > 8) ? 16 : 8;   /* Initialisation de la dimension de la matrice de Hadamard */
+  int dimensionHadamard = (nbUtilisateurs > 8) ? 16 : 8;   
 
   // Création de la matrice de Hadamard qui sera essentielle pour coder les séquences
   int ** matriceHadamard = creeMatriceHadamard(dimensionHadamard);
