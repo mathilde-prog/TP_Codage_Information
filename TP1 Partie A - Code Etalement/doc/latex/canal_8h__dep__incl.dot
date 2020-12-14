@@ -6,4 +6,6 @@ digraph "canal.h"
   Node1 [label="canal.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Tous les prototypes de fonctions relatives au canal."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node2 [label="canal.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$canal_8c.html",tooltip="Fonction relative au canal."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="tp1a.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tp1a_8c.html",tooltip="Programme principal pour tester le code d'étalement."];
 }

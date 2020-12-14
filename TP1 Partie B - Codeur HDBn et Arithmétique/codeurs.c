@@ -11,12 +11,11 @@
 /**
  * \fn void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f)
  * \brief Calcul du codage arithmétique avec les intervalles et récupération de la valeur définitive de f
- * \param float ** matArithmetique
- * \param int * data
- * \param int nb_caracteres
- * \param int longueurData
- * \param float * f
- * \return
+ * \param float ** matArithmetique Matrice arithmétique
+ * \param int * data Tableau de données d'entiers
+ * \param int nb_caracteres Nombre de caractères
+ * \param int longueurData Longueur des données
+ * \param float * f Nombre à virgule flottante
 */
 void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_caracteres, int longueurData, float * f){
   int i, a;
@@ -44,10 +43,9 @@ void calculer_codage_arithmetique(float ** matArithmetique, int * data, int nb_c
 /**
  * \fn void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison)
  * \brief Tri bulle d'une matrice d'entiers en fonction de la colonne passée en paramètre
- * \param int ** Mat
- * \param int lignes
- * \param int colonneComparaison
- * \return
+ * \param int ** Mat Matrice d'entiers
+ * \param int lignes Nombre de lignes
+ * \param int colonneComparaison Colonne de comparaison
 */
 void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison){
   int i, j, echange1, echange2;
@@ -71,10 +69,9 @@ void triBulle_Mat(int ** Mat, int lignes, int colonneComparaison){
 /**
  * \fn void afficherMatrice_float(float ** matrice, int ligne, int colonne)
  * \brief Affichage d'une matrice de float
- * \param float ** matrice
- * \param int ligne
- * \param int colonne
- * \return
+ * \param float ** matrice Matrice de float
+ * \param int ligne Nombre de lignes
+ * \param int colonne Nombre de colonnes
 */
 void afficherMatrice_float(float ** matrice, int ligne, int colonne){
   int l;
@@ -92,11 +89,10 @@ void afficherMatrice_float(float ** matrice, int ligne, int colonne){
 /**
  * \fn void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres)
  * \brief Copie des valeurs d'un tableau d'entiers dans une matrice d'entiers à la colonne 0 et ajout de la fréquence de chaque valeur dans la 2ème colonne
- * \param int ** tab
- * \param int ** mat
- * \param int lignes
- * \param int * nb_caracteres
- * \return
+ * \param int ** tab Tableau d'entiers
+ * \param int ** mat Matrice d'entiers
+ * \param int lignes Nombre de lignes
+ * \param int * nb_caracteres Pointeur sur nombre de caractères
 */
 void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
   int compteur, i, j, m;
@@ -131,10 +127,9 @@ void tab2Mat(int * tab, int ** mat, int lignes, int * nb_caracteres){
  * \brief Fonction d'encodage HDBn et arithmétique
  * \param int encodeur
  * \param int longueurData
- * \param int * data
- * \param int * p
- * \param int * n
- * \return
+ * \param int * data Tableau de données d'entiers
+ * \param int * p Tableau d'entiers pour contenir les valeurs positives
+ * \param int * n Tableaux d'entiers pour contenir les valeurs négatives
 */
 void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float * f, int * p, int * n){
   int i;
@@ -273,8 +268,8 @@ void encodeurHDBn_Arithmetique(int encodeur, int longueurData, int * data, float
 /**
  * \fn void afficherTab(int * tab, int nb)
  * \brief Affichage d'un tableau d'entiers
- * \param int * tab
- * \param int nb
+ * \param int * tab Tableau d'entiers
+ * \param int nb Taille du tableau
 */
 void afficherTab(int * tab, int nb){
   for(int i=0; i<nb; i++){
@@ -340,7 +335,6 @@ float ** alloue_matrice_float (int lignes, int colonnes){
  * \brief Libère la mémoire allouée pour la matrice d'entiers
  * \param int ** matrice Matrice
  * \param int lignes Nombre de lignes
- * \return Rien
 */
 void free_matrice(int ** matrice, int lignes){
   int i;
@@ -357,7 +351,6 @@ void free_matrice(int ** matrice, int lignes){
  * \brief Libère la mémoire allouée pour la matrice de float
  * \param float ** matrice Matrice
  * \param int lignes Nombre de lignes
- * \return Rien
 */
 void free_matrice_float(float ** matrice, int lignes){
   int i;

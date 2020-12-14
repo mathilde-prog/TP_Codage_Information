@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TP1 Partie A - Code d&#39;Etalement:  Fichier source de recepteur.h</title>
+<title>TP1 Partie A - Code d&#39;Etalement: Référence du fichier tp1a.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,7 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,19 +60,43 @@ $(function() {
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
-<div class="title">recepteur.h</div>  </div>
+<div class="title">Référence du fichier tp1a.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="recepteur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> ** <a class="code" href="recepteur_8h.html#afdb263820bc073884707d1a40e97ed5e">desetalement</a>(<span class="keywordtype">int</span> nbUtilisateurs, <span class="keywordtype">int</span> * sequenceSignal, <span class="keywordtype">int</span> longueurMessages);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="recepteur_8h.html#abd13da2e35c58026368c8651eca58c4d">afficherMessagesRecus</a>(<span class="keywordtype">int</span> nbUtilisateurs, <span class="keywordtype">int</span> ** messagesRecus, <span class="keywordtype">int</span> longueurMessages);</div>
-</div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="arecepteur_8h_html_afdb263820bc073884707d1a40e97ed5e"><div class="ttname"><a href="recepteur_8h.html#afdb263820bc073884707d1a40e97ed5e">desetalement</a></div><div class="ttdeci">int ** desetalement(int nbUtilisateurs, int *sequenceSignal, int longueurMessages)</div><div class="ttdoc">Appelle la fonction nécessaire pour créer la matrice de Hadamard et ainsi procèder au désetalement du...</div><div class="ttdef"><b>Definition:</b> recepteur.c:20</div></div>
-<div class="ttc" id="arecepteur_8h_html_abd13da2e35c58026368c8651eca58c4d"><div class="ttname"><a href="recepteur_8h.html#abd13da2e35c58026368c8651eca58c4d">afficherMessagesRecus</a></div><div class="ttdeci">void afficherMessagesRecus(int nbUtilisateurs, int **messagesRecus, int longueurMessages)</div><div class="ttdoc">Affiche le message reçu.</div><div class="ttdef"><b>Definition:</b> recepteur.c:70</div></div>
+
+<p>Programme principal pour tester le code d'étalement.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;getopt.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="emetteur_8h_source.html">emetteur.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="recepteur_8h_source.html">recepteur.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="matrice__tab_8h_source.html">matrice_tab.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="canal_8h_source.html">canal.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de tp1a.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="tp1a_8c__incl.png" border="0" usemap="#tp1a_8c" alt=""/></div>
+<!-- MAP 0 -->
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a7f567e72b4713406998c6192bb2a10e7"><td class="memItemLeft" align="right" valign="top"><a id="a7f567e72b4713406998c6192bb2a10e7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char *argv[], char *env[])</td></tr>
+<tr class="separator:a7f567e72b4713406998c6192bb2a10e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Programme principal pour tester le code d'étalement. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Mathilde Mottay, Anaïs Mottier </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par &#160;<a href="http://www.doxygen.org/index.html">

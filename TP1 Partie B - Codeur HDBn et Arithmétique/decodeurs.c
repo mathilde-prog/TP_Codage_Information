@@ -11,12 +11,11 @@
 /**
  * \fn void decodeurHDBn(int valHDBn, int longueurData, int * p, int * n, int * data)
  * \brief Fonction de décodage HDBn
- * \param int valHDBn
- * \param int longueurData
- * \param int * p
- * \param int * n
- * \param int * data
- * \return
+ * \param int valHDBn Valeur HDBn
+ * \param int longueurData Longueur des données
+ * \param int * p Tableau d'entiers pour contenir les valeurs positives
+ * \param int * n Tableaux d'entiers pour contenir les valeurs négatives
+ * \param int * data Tableau de données d'entiers
 */
 void decodeurHDBn(int valHDBn, int longueurData, int * p, int * n, int * data){
   int i, nb;
@@ -71,12 +70,11 @@ void decodeurHDBn(int valHDBn, int longueurData, int * p, int * n, int * data){
 /**
  * \fn void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float ** matDecodeur, int * data)
  * \brief Fonction de décodage arithmétique
- * \param int longueurData
- * \param int nb_caracteres
- * \param float * f
- * \param float ** matDecodeur
- * \param int * data
- * \return
+ * \param int longueurData Longueur des données
+ * \param int nb_caracteres Nombre de caractères
+ * \param float f Valeur arithmétique 
+ * \param float ** matDecodeur Matrice
+ * \param int * data Tableau de données d'entiers
 */
 void decodeurArithmetique(int longueurData, int nb_caracteres, float f, float ** matDecodeur, int * data){
   int i, m, trouver;
